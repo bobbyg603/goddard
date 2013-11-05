@@ -4,5 +4,7 @@
 * 10.29.2013 
 */
 
+var server = require("./bin/server");
+var router = require("./bin/router");
 
-/* document.write("hello again world!");8 */
+server.start(router.route);
