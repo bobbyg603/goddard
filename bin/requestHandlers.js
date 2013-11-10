@@ -33,7 +33,20 @@ function start(response, postData) {
 function upload(response, postData) {
 	console.log("Request handler 'upload' was called.");
 	response.writeHead(200, {"Content-Type": "text/plain"});
+
+	var q = querystring.parse(postData).text;
+
+	if(q  === "speak") {
+		response.write("bark bark!");
+	} else if(q === "come") {
+		response.write("I'm coming!");
+	} else if(q === "sleep") {
+		response.write("Zzzzzzzzz");
+	} else if(q === "dance"){
+		response.write("I'm dancin'!");
+	} else {
 	response.write("You've sent: " + querystring.parse(postData).text);
+	}
 	response.end();
 }
 
