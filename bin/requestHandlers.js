@@ -1,5 +1,6 @@
-//var exec = require("child_process").exec;
+var exec = require("child_process").exec;
 var querystring = require("querystring");
+var sys = require('sys');
 
 function start(response, postData) {
 	console.log("Request handler 'start' was called.");
@@ -45,7 +46,12 @@ function upload(response, postData) {
 	} else if(q === "dance"){
 		response.write("I'm dancin'!");
 	} else {
-	response.write("You've sent: " + querystring.parse(postData).text);
+		console.log("Executing...");
+		
+		response.write("You've sent: " + q);
+		// How can I make this execute a python program?
+
+		console.log("Done Executing");
 	}
 	response.end();
 }
