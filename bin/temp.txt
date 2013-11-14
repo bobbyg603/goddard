@@ -1,2 +1,20 @@
-[{"subpods":[{"title":"","value":" integral 2 x dx = x^2+constant","image":"http://www5a.wolframalpha.com/Calculate/MSP/MSP36002050fgg595dgib5a000031a456025754352g?MSPStoreType=image/gif&s=59"}],"primary":true},{"subpods":[{"title":"","value":"","image":"http://www5a.wolframalpha.com/Calculate/MSP/MSP36012050fgg595dgib5a000055e24iecig9cc4ga?MSPStoreType=image/gif&s=59"}],"primary":false}]
+[
+  {
+    "subpods": 
+      [{
+      "title":"",
+      "value":" integral 2 x dx = x^2+constant",
+      "image":"http://www5a.wolframalpha.com/Calculate/MSP/MSP36002050fgg595dgib5a000031a456025754352g?MSPStoreType=image/gif&s=59"
+      }],
+    "primary":true
+  },
+  {
+    "subpods": [{
+      "title":"",
+      "value":"",
+      "image":"http://www5a.wolframalpha.com/Calculate/MSP/MSP36012050fgg595dgib5a000055e24iecig9cc4ga?MSPStoreType=image/gif&s=59"
+    }],
+    "primary":false
+  }
+]
 
