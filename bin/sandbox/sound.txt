@@ -1,0 +1,5 @@
+http://www.raspberrypi.org/phpBB3/viewtopic.php?f=28&t=56797
+
+http://elinux.org/R-Pi_Troubleshooting#Sound_does_not_work_at_all.2C_or_in_some_applications
+
+http://www.raspberrypi.org/phpBB3/viewtopic.php?p=73379

@@ -1,5 +1,6 @@
 var exec = require("child_process").exec;
 var querystring = require("querystring");
+var wolfram = require('wolfram-alpha').createClient("2P3U5X-5YLPLVYPJH");
 var sys = require('sys');
 
 function start(response, postData) {
@@ -49,7 +50,14 @@ function upload(response, postData) {
 		console.log("Executing...");
 		
 		response.write("You've sent: " + q);
-		// How can I make this execute a python program?
+
+		/*
+		wolfram.query(q, function(err, result) {
+		  if(err) throw err;
+		  var newResult = result[0].subpods[0].value;
+		  console.log(newResult);
+		})
+		*/
 
 		console.log("Done Executing");
 	}
