@@ -23,8 +23,8 @@ process.stdin.on('data', function (text) {
 		//Replace character | with , also need to replace mathematic operations with english equivalents
 		var finalResult = newResult.replace(" |",",").replace("+"," plus ");		
 
-		console.log(result + "\n");
-		console.log(newResult);
+		//console.log(result + "\n");
+		//console.log(newResult);
 
 	        //might need to consider asynchronous problems
        		var cmd = "./speech.sh \"" + finalResult + "\"";
