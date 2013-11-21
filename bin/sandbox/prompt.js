@@ -19,11 +19,13 @@ process.stdin.on('data', function (text) {
 	wolfram.query(q, function(err, result) {
 		if(err) throw err;
 		
+		console.log("The result is: %j \n",result);
+
 		//Set newResults equal to the first 2 subpods
 		var newResult = result[0].subpods[0].value + ", " + result[1].subpods[0].value;
 		
 		//Replace character | with , also need to replace mathematic operations with english equivalents
-		var finalResult = newResult.replace(" |",",").replace("+"," plus ");		
+		var finalResult = newResult.replace(" |",",").replace("+"," plus ").replace("$"," in US Dollars ");		
 
 	        //Build the shell command - Might need to consider asynchronous problems
 	        var cmd = "./speech.sh \"" + finalResult + "\"";
