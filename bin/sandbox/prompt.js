@@ -26,8 +26,8 @@ process.stdin.on('data', function (text) {
 		var finalResult = newResult.replace(" |",",").replace("+"," plus ");		
 
 	        //Build the shell command - Might need to consider asynchronous problems
-       		var cmd = "./speech.sh \"" + finalResult + "\"";
-       		console.log(cmd);
+	        var cmd = "./speech.sh \"" + finalResult + "\"";
+	        console.log(cmd);
 		
 		//Run the shell command for Text to Speech
         	child = exec(cmd, function(error, stdout, stderr) {
