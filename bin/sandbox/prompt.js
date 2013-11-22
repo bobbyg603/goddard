@@ -23,7 +23,7 @@ process.stdin.on('data', function (text) {
 		//console.log("The result is: %j \n",result);
 
 		//Try and get the first 2 results, make sure the 2nd isn't undefined
-		if(typeof result[1].subpods[0].value === "undefined") newResults = result[0].subpods[0].value;
+		if(typeof(result[0]) === "undefined" || typeof(result[1]) === "undefined") console.log("Error! results array is undefined"); 
 		
 		//Set newResults equal to the first 2 subpods
 		else var newResult = result[0].subpods[0].value + ", " + result[1].subpods[0].value;
