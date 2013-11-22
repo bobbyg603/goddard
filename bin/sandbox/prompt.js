@@ -21,11 +21,14 @@ process.stdin.on('data', function (text) {
 		
 		console.log("The result is: %j \n",result);
 
-		//Set newResults equal to the first 2 subpods
-		var newResult = result[0].subpods[0].value + ", " + result[1].subpods[0].value;
+		//Try and get the first 2 results, make sure the 2nd isn't undefined
+		if(result[1].subpods[0].value; == 'undefined') newResults = result[0].subpods[0].value;
 		
-		//Replace character | with , also need to replace mathematic operations with english equivalents
-		var finalResult = newResult.replace(" |",",").replace("+"," plus ").replace("$"," in US Dollars ");		
+		//Set newResults equal to the first 2 subpods
+		else var newResult = result[0].subpods[0].value + ", " + result[1].subpods[0].value;
+		
+		//Replace characters in mathematic operations with spoken english equivalents
+		var finalResult = newResult.replace("+"," plus ").replace("-"," minus ").replace("$"," in US Dollars ");		
 
 	        //Build the shell command - Might need to consider asynchronous problems
 	        var cmd = "./speech.sh \"" + finalResult + "\"";
