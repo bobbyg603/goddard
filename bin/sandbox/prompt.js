@@ -9,7 +9,11 @@ var wolfram = require('wolfram').createClient("2P3U5X-5YLPLVYPJH");
 process.stdin.on('data', function (text) {
 
 	//console.log('received data:', util.inspect(text));
-
+	//Quit if the user types quit
+	if (text === 'quit\n') {
+		done();
+	}
+	
 	//Set q = query using slice() to get rid of the newline character
 	var q = text.slice(0,text.length-1);
 
@@ -47,10 +51,6 @@ process.stdin.on('data', function (text) {
 		}
 		
 	});
-	//Quit if the user types quit
-	if (text === 'quit\n') {
-		done();
-	}
 });
 
 function done() {
