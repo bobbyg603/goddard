@@ -24,7 +24,10 @@ process.stdin.on('data', function (text) {
 		//Set newResults equal to the first 2 subpods
 		var newResult = result[0].subpods[0].value + ", " + result[1].subpods[0].value;
 		
-		//Replace character | with , also need to replace mathematic operations with english equivalents
+		//Make sure newResults is not empty
+		if(newResults == 'undefined') newResults = result[0].subpods[0].value;
+		
+		//Replace characters in mathematic operations with spoken english equivalents
 		var finalResult = newResult.replace("+"," plus ").replace("-"," minus ").replace("$"," in US Dollars ");		
 
 	        //Build the shell command - Might need to consider asynchronous problems
