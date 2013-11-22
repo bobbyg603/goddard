@@ -23,27 +23,29 @@ process.stdin.on('data', function (text) {
 		//console.log("The result is: %j \n",result);
 
 		//Try and get the first 2 results, make sure the 2nd isn't undefined
-		if(typeof(result[0]) === "undefined" || typeof(result[1]) === "undefined") console.log("Error! results array is undefined"); 
+		if(typeof(result[0]) === "undefined" || typeof(result[1]) === "undefined") console.log("Error! results array is undefined");
+		else {
+			//Set newResults equal to the first 2 subpods
+			var newResult = result[0].subpods[0].value + ", " + result[1].subpods[0].value;
+			
+			//Replace characters in mathematic operations with spoken english equivalents
+			var finalResult = newResult.replace("+"," plus ").replace("-"," minus ").replace("$"," in US Dollars ");		
+	
+		        //Build the shell command - Might need to consider asynchronous problems
+		        var cmd = "./speech.sh \"" + finalResult + "\"";
+		        console.log(cmd);
+			
+			//Run the shell command for Text to Speech
+	        	child = exec(cmd, function(error, stdout, stderr) {
+	                	//sys.print('stdout:' + stdout);
+	                	//sys.print('stderr:' + stderr);
+	
+		                if(error !== null) {
+	        	                console.log('exec error' + error);
+	               		}
+	        	});
+		}
 		
-		//Set newResults equal to the first 2 subpods
-		else var newResult = result[0].subpods[0].value + ", " + result[1].subpods[0].value;
-		
-		//Replace characters in mathematic operations with spoken english equivalents
-		var finalResult = newResult.replace("+"," plus ").replace("-"," minus ").replace("$"," in US Dollars ");		
-
-	        //Build the shell command - Might need to consider asynchronous problems
-	        var cmd = "./speech.sh \"" + finalResult + "\"";
-	        console.log(cmd);
-		
-		//Run the shell command for Text to Speech
-        	child = exec(cmd, function(error, stdout, stderr) {
-                	//sys.print('stdout:' + stdout);
-                	//sys.print('stderr:' + stderr);
-
-	                if(error !== null) {
-        	                console.log('exec error' + error);
-               		}
-        	});
 	});
 	//Quit if the user types quit
 	if (text === 'quit\n') {
