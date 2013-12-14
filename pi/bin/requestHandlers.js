@@ -1,6 +1,6 @@
 var exec = require("child_process").exec;
 var querystring = require("querystring");
-var wolfram = require('wolfram-alpha').createClient("2P3U5X-5YLPLVYPJH");
+var wolfram = require('wolfram').createClient("2P3U5X-5YLPLVYPJH");
 var sys = require('sys');
 
 function start(response, postData) {
