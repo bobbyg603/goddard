@@ -12,7 +12,8 @@
           "email" : "bobbyg603@gmail.com"
   } ],
   "dependencies" : {
-  	"wolfram": ">= 0.2.6"
+  	"wolfram": ">= 0.2.6",
+	"formidable":>= 1.0.14"
   },
   "license": "MIT",
   "repository" : {
