@@ -6,4 +6,4 @@ The Goddard Project is developing the hardware and software of an autonomous rob
 This project uses a Raspberry Pi and an Arduino Uno.
 
 =======
-Full details coming soon.
+©2013
