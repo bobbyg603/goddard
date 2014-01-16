@@ -1,4 +1,4 @@
 goddard
 =======
 
-The Goddard Project
+Raspberry Pi code for The Goddard Project
