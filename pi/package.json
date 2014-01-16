@@ -1,23 +1,24 @@
 {
   "name": "goddard",
-  "version": "0.0.0",
+  "version": "0.0.9",
   "description": "The Goddard Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "repository": {
     "type": "git",
     "url": "git://github.com/bobbyg603/goddard.git"
   },
-  "author": "The Goddard Team",
-  "contributors" : [ {
-          "name" : "Bobby Galli",
-          "email" : "bobbyg603@gmail.com"
-  } ],
-  "dependencies" : {
-  	"wolfram": ">= 0.2.6",
-	"formidable": ">= 1.0.14"
-  },
+  "keywords": [
+    "goddard",
+    "unh",
+    "node",
+    "express"
+  ],
+  "author": "Bobby Galli",
   "license": "MIT",
-  "repository" : {
-          "type" : "git",
-          "url" : "git://github.com/bobbyg603/goddard.git"
+  "bugs": {
+    "url": "https://github.com/bobbyg603/goddard/issues"
   }
 }
