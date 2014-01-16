@@ -35,21 +35,21 @@ process.stdin.on('data', function (text) {
 			//Replace characters in mathematic operations with spoken english equivalents
 			var finalResult = newResult.replace("+"," plus ").replace("-"," minus ").replace("$"," in US Dollars ");		
 	
-		        //Build the shell command - Might need to consider asynchronous problems
-		        //var cmd = "./speech.sh \"" + finalResult + "\"";
-		        var cmd = "espeak \"" +finalResult+ "\"";
+            //Build the shell command - Might need to consider asynchronous problems
+            //var cmd = "./speech.sh \"" + finalResult + "\"";
+            var cmd = "espeak \"" +finalResult+ "\"";
 			
 			console.log(cmd);
 			
 			//Run the shell command for Text to Speech
-	        	child = exec(cmd, function(error, stdout, stderr) {
-	                	//sys.print('stdout:' + stdout);
-	                	//sys.print('stderr:' + stderr);
+             child = exec(cmd, function(error, stdout, stderr) {
+                        //sys.print('stdout:' + stdout);
+                        //sys.print('stderr:' + stderr);
 	
-		                if(error !== null) {
-	        	                console.log('exec error' + error);
-	               		}
-	        	});
+                        if(error !== null) {
+                            console.log('exec error' + error);
+                        }
+            });
 		}
 		
 	});

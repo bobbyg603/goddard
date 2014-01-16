@@ -26,9 +26,9 @@ function start(route, handle) {
 		});
 		*/
 	}
-	//http.createServer(onRequest).listen(process.env.PORT, process.env.IP);
+	http.createServer(onRequest).listen(process.env.PORT, process.env.IP);
 	//Uncomment for Pi
-	http.createServer(onRequest).listen(8888);
+	//http.createServer(onRequest).listen(8888);
 	console.log("Server has started on port 8888");
 }
 
