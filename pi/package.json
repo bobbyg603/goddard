@@ -17,6 +17,12 @@
     "express"
   ],
   "author": "Bobby Galli",
+  "dependencies" : {
+    "wolfram" : "x.x.x",
+  	"mongoose" : "3.6.x",
+  	"express" : "3.2.x",
+  	"ejs" : "0.8.x"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/bobbyg603/goddard/issues"
