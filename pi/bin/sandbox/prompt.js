@@ -17,7 +17,7 @@ process.stdin.on('data', function (text) {
 	//Set q = query using slice() to get rid of the newline character
 	var q = text.slice(0,text.length-1);
 
-	console.log("\nSending Query to Wolfram...");
+	console.log("\nSending Query to Wolfram...\n");
 	
 	//Query Wolfram where q is the query
 	wolfram.query(q, function(err, result) {
