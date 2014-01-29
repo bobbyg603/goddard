@@ -74,6 +74,7 @@ function cmd(response, request) {
     var fields = [];
     var q = "";
     var action = "";
+    var arguement = "";
     
     console.log("about to parse...");
 
@@ -95,20 +96,26 @@ function cmd(response, request) {
             console.log("fields: " +q);
             response.write("You've sent the command: " + q +"<br/><br/>");
 
-	    //Get the first word and treat it as the desired action
+	    //Take input and seperate it into action and arguement
 	    var qParse = function(cmd) {
 		for(var i=0;i<cmd.length;i++){
 			if(cmd.charAt(i) === " ") {
-				parsedCmd = cmd.slice(0,i);
-				return parsedCmd;
+				action = cmd.slice(0,i);
+				arguement = cmd.slice(i+1,cmd.length);
 				break;
 			}
+			else { action = cmd; arguement = "undefined"; }
+				
 		}
 	    }
-	    action = qParse(q);
+	    //Parse q to determine the action and arguement
+	    qParse(q);
 
+	    //Display action in HTML
 	    response.write("The parsed action is: " + action + "<br/><br/>");
+	    response.write("The parsed arguement is: " + arguement + "<br/><br/>");
 
+	    //These are all of the actions Goddard understands
 	    if(action === "say") response.write("Say!");
 	    else if(action === "play") response.write("Play!");
 	    else if(action === "fetch") response.write("Fetch!");
@@ -122,6 +129,7 @@ function cmd(response, request) {
 	    else if(action === "why") response.write("Why?");
 	    else if(action === "how") response.write("How?");
            
+	    //This code needs to go into its own module
 	    /*
                     console.log("Executing...");
 		    wolfram.query(q, function(err, result) {
@@ -137,7 +145,6 @@ function cmd(response, request) {
                         console.log(stdout);
                     });   
                     console.log("Done Executing");
-                
              */
 
             response.end('received fields:\n\n'+util.inspect(fields));
