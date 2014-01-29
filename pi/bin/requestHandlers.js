@@ -147,7 +147,7 @@ function cmd(response, request) {
                     console.log("Done Executing");
              */
 
-            response.end('received fields:\n\n'+util.inspect(fields));
+            response.end('<br/><br/>received fields:\n\n'+util.inspect(fields));
         });
     form.parse(request);
 }
