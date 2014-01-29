@@ -1,4 +1,4 @@
-//var exec = require("child_process").exec;
+var exec = require("child_process").exec;
 var querystring = require("querystring");
 var wolfram = require("wolfram").createClient("2P3U5X-5YLPLVYPJH");
 var sys = require("sys");
@@ -69,12 +69,15 @@ function upload(response, request) {
 }
 
 function cmd(response, request) {
-    
+    //Set up variables to parse text command
     var form = new formidable.IncomingForm();
     var fields = [];
-    console.log("about to parse...");
     var q = "";
+    var action = "";
+    
+    console.log("about to parse...");
 
+    //Formidable get command from textbox
     form
         .on('eror', function(err) {
             response.writeHead(200, {"Content-Type": "text/html"});
@@ -92,21 +95,36 @@ function cmd(response, request) {
             console.log("fields: " +q);
             response.write("You've sent the command: " + q +"<br/><br/>");
 
+	    //Get the first word and treat it as the desired action
+	    var qParse = function(cmd) {
+		for(var i=0;i<cmd.length;i++){
+			if(cmd.charAt(i) === " ") {
+				parsedCmd = cmd.slice(0,i);
+				return parsedCmd;
+				break;
+			}
+		}
+	    }
+	    action = qParse(q);
 
-            if(q  === "speak") {
-                response.write("bark bark!<br/><br/>");
-            } else if(q === "come") {
-                response.write("I'm coming!<br/><br/>");
-            } else if(q === "sleep") {
-                response.write("Zzzzzzzzz<br/><br/>");
-            } else if(q === "dance"){
-                response.write("<img src='http://i.imgur.com/WgOXCne.gif'/><br/><br/>");
-            } else {
-                console.log("Executing...");
-	
-                response.write("Command not understood yet!<br/><br/>");
-                 /*
-                    wolfram.query(q, function(err, result) {
+	    response.write("The parsed action is: " + action + "<br/><br/>");
+
+	    if(action === "say") response.write("Say!");
+	    else if(action === "play") response.write("Play!");
+	    else if(action === "fetch") response.write("Fetch!");
+	    else if(action === "sleep") response.write("Sleep!");
+	    else if(action === "come") response.write("Come!");
+	    else if(action === "dance") response.write("Dance!");
+	    else if(action === "what") response.write("What?");
+	    else if(action === "who") response.write("Who?");
+	    else if(action === "when") response.write("When?");
+	    else if(action === "where") response.write("Where?");
+	    else if(action === "why") response.write("Why?");
+	    else if(action === "how") response.write("How?");
+           
+	    /*
+                    console.log("Executing...");
+		    wolfram.query(q, function(err, result) {
                         if(err) throw err;
                         if(typeof(result[0]) === "undefined" || typeof(result[1]) === "undefined") console.log("Error! results array is undefined");
                         else {
@@ -118,10 +136,9 @@ function cmd(response, request) {
                     exec("ls -lah", function(error, stdout, stderr) {
                         console.log(stdout);
                     });   
-                console.log("Done Executing");
+                    console.log("Done Executing");
                 
-                */
-            }
+             */
 
             response.end('received fields:\n\n'+util.inspect(fields));
         });
