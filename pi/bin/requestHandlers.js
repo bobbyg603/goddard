@@ -1,11 +1,11 @@
-var exec = require("child_process").exec;
-var querystring = require("querystring");
-var wolfram = require("wolfram").createClient("2P3U5X-5YLPLVYPJH");
-var sys = require("sys");
+//Node Modules
 var util = require("util");
 var fs = require("fs");
 var formidable = require("formidable");
-//var exec = require("exec");
+
+//Goddard Modules
+var wolfram = require('./modules/wolfram.js');
+
 
 //function start(response, postData) {
 function start(response) {
@@ -96,18 +96,18 @@ function cmd(response, request) {
             console.log("fields: " +q);
             response.write("You've sent the command: " + q +"<br/><br/>");
 
-	    //Take input and seperate it into action and arguement
-	    var qParse = function(cmd) {
-		for(var i=0;i<cmd.length;i++){
-			if(cmd.charAt(i) === " ") {
-				action = cmd.slice(0,i);
-				arguement = cmd.slice(i+1,cmd.length);
-				break;
-			}
-			else { action = cmd; arguement = "undefined"; }
-				
-		}
-	    }
+        //Take input and seperate it into action and arguement
+        var qParse = function(cmd) {
+            for(var i=0;i<cmd.length;i++){
+                if(cmd.charAt(i) === " ") {
+                    action = cmd.slice(0,i);
+                    arguement = cmd.slice(i+1,cmd.length);
+                    break;
+                }
+                else { action = cmd; arguement = "undefined"; }
+	
+            }
+        };
 	    //Parse q to determine the action and arguement
 	    qParse(q);
 
@@ -123,7 +123,7 @@ function cmd(response, request) {
 	    else if(action === "come") response.write("Come!");
 	    else if(action === "dance") response.write("Dance!");
 	    else if(action === "what") response.write("What?");
-	    else if(action === "who") response.write("Who?");
+	    else if(action === "who") console.log(wolfram(arguement));
 	    else if(action === "when") response.write("When?");
 	    else if(action === "where") response.write("Where?");
 	    else if(action === "why") response.write("Why?");
@@ -147,7 +147,7 @@ function cmd(response, request) {
                     console.log("Done Executing");
              */
 
-            response.end('<br/><br/>received fields:\n\n'+util.inspect(fields));
+        response.end('<br/><br/>received fields:\n\n'+util.inspect(fields));
         });
     form.parse(request);
 }
