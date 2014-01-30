@@ -42,7 +42,7 @@ process.stdin.on('data', function (text) {
 			console.log(cmd);
 			
 			//Run the shell command for Text to Speech
-            		 child = exec(cmd, function(error, stdout, stderr) {
+            child = exec(cmd, function(error, stdout, stderr) {
                         
 			//sys.print('stdout:' + stdout);
                         //sys.print('stderr:' + stderr);
