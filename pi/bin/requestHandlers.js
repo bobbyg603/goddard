@@ -117,17 +117,17 @@ function cmd(response, request) {
 
 	    //These are all of the actions Goddard understands
 	    if(action === "say") response.write("Say!");
-	    else if(action === "play")  response.write("Play!");
-	    else if(action === "fetch") response.write("Fetch!");
-	    else if(action === "sleep") response.write("Sleep!");
-	    else if(action === "come")  response.write("Come!");
-	    else if(action === "dance") response.write("Dance!");
-	    else if(action === "what")  wolfram.ask(action + " " + arguement);
-	    else if(action === "who")   wolfram.ask(action + " " + arguement);
-	    else if(action === "when")  wolfram.ask(action + " " + arguement);
-	    else if(action === "where") wolfram.ask(action + " " + arguement);
-	    else if(action === "why")   response.write("Why?");
-	    else if(action === "how")   response.write("How?");
+	    else if(action === "play" || action === "Play")	response.write("Play!");
+	    else if(action === "fetch" || action === "Fetch")	response.write("Fetch!");
+	    else if(action === "sleep" || action === "Sleep")	response.write("Sleep!");
+	    else if(action === "come" || action === "Come")	response.write("Come!");
+	    else if(action === "dance" || action === "Dance")	response.write("Dance!");
+	    else if(action === "what" || action === "What")	wolfram.ask(action + " " + arguement);
+	    else if(action === "who" || action === "Who")	wolfram.ask(action + " " + arguement);
+	    else if(action === "when" || action === "When")	wolfram.ask(action + " " + arguement);
+	    else if(action === "where" || action === "Where")	wolfram.ask(action + " " + arguement);
+	    else if(action === "why" || action === "Why")	response.write("Why?");
+	    else if(action === "how" || action === "How")	response.write("How?");
            
 	    //This code needs to go into its own module
 	    /*
