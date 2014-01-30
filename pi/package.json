@@ -18,8 +18,8 @@
   ],
   "author": "Bobby Galli",
   "dependencies" : {
-    "wolfram" : "*",
-    "formidable": "*",
+    	"wolfram" : "*",
+    	"formidable": "*",
   	"mongoose" : "3.6.x",
   	"express" : "3.2.x",
   	"ejs" : "0.8.x"
