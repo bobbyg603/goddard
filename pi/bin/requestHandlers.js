@@ -117,17 +117,17 @@ function cmd(response, request) {
 
 	    //These are all of the actions Goddard understands
 	    if(action === "say") response.write("Say!");
-	    else if(action === "play") response.write("Play!");
+	    else if(action === "play")  response.write("Play!");
 	    else if(action === "fetch") response.write("Fetch!");
 	    else if(action === "sleep") response.write("Sleep!");
-	    else if(action === "come") response.write("Come!");
+	    else if(action === "come")  response.write("Come!");
 	    else if(action === "dance") response.write("Dance!");
-	    else if(action === "what") response.write("What?");
-	    else if(action === "who") console.log(wolfram(arguement));
-	    else if(action === "when") response.write("When?");
-	    else if(action === "where") response.write("Where?");
-	    else if(action === "why") response.write("Why?");
-	    else if(action === "how") response.write("How?");
+	    else if(action === "what")  wolfram.ask(action + " " + arguement);
+	    else if(action === "who")   wolfram.ask(action + " " + arguement);
+	    else if(action === "when")  wolfram.ask(action + " " + arguement);
+	    else if(action === "where") wolfram.ask(action + " " + arguement);
+	    else if(action === "why")   response.write("Why?");
+	    else if(action === "how")   response.write("How?");
            
 	    //This code needs to go into its own module
 	    /*

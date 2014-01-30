@@ -1,7 +1,6 @@
 var wolfram = require('wolfram').createClient("2P3U5X-5YLPLVYPJH");
 
-function start(query) {
-    var q = query;
+exports.ask = function start(q) {
     var finalResult = "";
 
 	console.log("\nSending Query to Wolfram...\n");
@@ -22,9 +21,6 @@ function start(query) {
 			//Replace characters in mathematic operations with spoken english equivalents
 			finalResult = newResult.replace("+"," plus ").replace("-"," minus ").replace("$"," in US Dollars ");
 		}
+	console.log(finalResult);
     });
-    
-    return finalResult;
-}
-
-module.exports.wolfram = start;
+};
