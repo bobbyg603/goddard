@@ -114,18 +114,22 @@ function cmd(response, request) {
 	    //Display action in HTML
 	    response.write("The parsed action is: " + action + "<br/><br/>");
 	    response.write("The parsed arguement is: " + arguement + "<br/><br/>");
+	    
+	    //Prepare the query for wolfram
+	    var question = action + " " + arguement;
 
 	    //These are all of the actions Goddard understands
+	    //Cassie! I goddard needs your help :) delete this comment when you're done
 	    if(action === "say") response.write("Say!");
 	    else if(action === "play"   || action === "Play")   response.write("Play!");
 	    else if(action === "fetch"  || action === "Fetch")	response.write("Fetch!");
 	    else if(action === "sleep"  || action === "Sleep")	response.write("Sleep!");
 	    else if(action === "come"   || action === "Come")   response.write("Come!");
 	    else if(action === "dance"  || action === "Dance")	response.write("Dance!");
-	    else if(action === "what"   || action === "What")   wolfram.ask(action + " " + arguement);
-	    else if(action === "who"    || action === "Who")    wolfram.ask(action + " " + arguement);
-	    else if(action === "when"   || action === "When")   wolfram.ask(action + " " + arguement);
-	    else if(action === "where"  || action === "Where")	wolfram.ask(action + " " + arguement);
+	    else if(action === "what"   || action === "What")    wolfram.ask(question);
+	    else if(action === "who"    || action === "Who")     wolfram.ask(question);
+	    else if(action === "when"   || action === "When")    wolfram.ask(question);
+	    else if(action === "where"  || action === "Where")	 wolfram.ask(question);
 	    else if(action === "why"    || action === "Why")    response.write("Why?");
 	    else if(action === "how"    || action === "How")    response.write("How?");
         else console.log("wut");
