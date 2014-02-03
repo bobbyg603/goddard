@@ -133,23 +133,6 @@ function cmd(response, request) {
 	    else if(action === "why"    || action === "Why")    response.write("Why?");
 	    else if(action === "how"    || action === "How")    response.write("How?");
         else console.log("wut");
-	    //This code needs to go into its own module
-	    /*
-                    console.log("Executing...");
-		    wolfram.query(q, function(err, result) {
-                        if(err) throw err;
-                        if(typeof(result[0]) === "undefined" || typeof(result[1]) === "undefined") console.log("Error! results array is undefined");
-                        else {
-                            var newResult = result[0].subpods[0].value+ "\n" + result[1].subpods[0].value + "\n";
-                            console.log(newResult);
-                            response.write(newResult+"<br/><br/>");
-                        }
-                    });
-                    exec("ls -lah", function(error, stdout, stderr) {
-                        console.log(stdout);
-                    });   
-                    console.log("Done Executing");
-             */
 
         response.end('<br/><br/>received fields:\n\n'+util.inspect(fields));
         });
