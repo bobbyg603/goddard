@@ -107,37 +107,36 @@ function cmd(response, request) {
                 else { action = cmd; arguement = "undefined"; }
             }
         };
-	    //Parse q to determine the action and arguement
-	    qParse(q);
+        //Parse q to determine the action and arguement
+        qParse(q);
 
-	    //Display action in HTML
-	    response.write("The parsed action is: " + action + "<br/><br/>");
-	    response.write("The parsed arguement is: " + arguement + "<br/><br/>");
-	    
-	    //Prepare the query for wolfram
-	    var question = action + " " + arguement;
+        //Display action in HTML
+        response.write("The parsed action is: " + action + "<br/><br/>");
+         response.write("The parsed arguement is: " + arguement + "<br/><br/>");
+        
+        //Prepare the query for wolfram
+        var question = action + " " + arguement;
 
-	    //These are all of the actions Goddard understands
-	    //Cassie! I goddard needs your help :) delete this comment when you're done
-	    if(action === "say") response.write("Say!");
-	    else if(action === "play"    || action === "Play")  response.write("Play!");
-	    else if(action === "fetch"   || action === "Fetch")	response.write("Fetch!");
-	    else if(action === "sleep"   || action === "Sleep")	response.write("Sleep!");
-	    else if(action === "come"    || action === "Come")   response.write("Come!");
-	    else if(action === "dance"   || action === "Dance")	response.write("Dance!");
-	    else if(action === "what"    || action === "What")    wolfram.ask(question);
-	    else if(action === "who"     || action === "Who")     wolfram.ask(question);
-	    else if(action === "when"    || action === "When")    wolfram.ask(question);
-	    else if(action === "where"   || action === "Where")	 wolfram.ask(question);
-	    else if(action === "why"     || action === "Why")    response.write("Why?");
-	    else if(action === "how"     || action === "How")    response.write("How?");
-	    else if(action === "start"   || action === "Start")  response.write("Placeholder");
-	    else if(action === "stop"    || action === "Stop")   response.write("This will eventually launch a function");
-        else if(action === "tailwag" || action === "Tailwag") response.write("Tailwag!");
-        else if(action === "speak"   || action === "Speak")   response.write("Speaking!");
-        else if(action === "kiss"    || action === "Kiss")    response.write("Muah!");
-        else if(action === "growl"   || action === "Growl")   response.write("Growl!");
-        else if(action === "tunes"   || action === "Tunes")   response.write("Tunes!");
+        //These are all of the actions Goddard understands
+        if(action === "say") response.write("Say!");
+        else if(action === "play"   || action === "Play")  response.write("Play!");
+        else if(action === "fetch"  || action === "Fetch")	response.write("Fetch!");
+        else if(action === "sleep"  || action === "Sleep")	response.write("Sleep!");
+        else if(action === "come"   || action === "Come")   response.write("Come!");
+        else if(action === "dance"  || action === "Dance")	response.write("Dance!");
+        else if(action === "what"   || action === "What")   wolfram.ask(question);
+        else if(action === "who"    || action === "Who")    wolfram.ask(question);
+        else if(action === "when"   || action === "When")   wolfram.ask(question);
+        else if(action === "where"  || action === "Where")	wolfram.ask(question);
+        else if(action === "why"    || action === "Why")    response.write("Why?");
+        else if(action === "how"    || action === "How")    response.write("How?");
+        else if(action === "start"  || action === "Start")  response.write("Placeholder");
+        else if(action === "stop"   || action === "Stop")   response.write("This will eventually launch a function");
+        else if(action === "wag"    || action === "Wag")    response.write("Tailwag!");
+        else if(action === "speak"  || action === "Speak")  response.write("Speaking!");
+        else if(action === "kiss"   || action === "Kiss")   response.write("Muah!");
+        else if(action === "growl"  || action === "Growl")  response.write("Growl!");
+        else if(action === "tunes"  || action === "Tunes")  response.write("Tunes!");
         else console.log("wut");
 
         response.end('<br/><br/>received fields:\n\n'+util.inspect(fields));
