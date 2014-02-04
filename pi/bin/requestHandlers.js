@@ -119,7 +119,7 @@ function cmd(response, request) {
 
         //These are all of the actions Goddard understands
         if(action === "say") response.write("Say!");
-        else if(action === "play"   || action === "Play")  response.write("Play!");
+        else if(action === "play"   || action === "Play")   response.write("Play!");
         else if(action === "fetch"  || action === "Fetch")	response.write("Fetch!");
         else if(action === "sleep"  || action === "Sleep")	response.write("Sleep!");
         else if(action === "come"   || action === "Come")   response.write("Come!");
@@ -130,13 +130,13 @@ function cmd(response, request) {
         else if(action === "where"  || action === "Where")	wolfram.ask(question);
         else if(action === "why"    || action === "Why")    response.write("Why?");
         else if(action === "how"    || action === "How")    response.write("How?");
-        else if(action === "start"  || action === "Start")  response.write("Placeholder");
-        else if(action === "stop"   || action === "Stop")   response.write("This will eventually launch a function");
-        else if(action === "wag"    || action === "Wag")    response.write("Tailwag!");
+        else if(action === "start"  || action === "Start")  response.write("Start!");
+        else if(action === "stop"   || action === "Stop")   response.write("Stop!");
+        else if(action === "wag"    || action === "Wag")    response.write("WagWag!");
         else if(action === "speak"  || action === "Speak")  response.write("Speaking!");
         else if(action === "kiss"   || action === "Kiss")   response.write("Muah!");
         else if(action === "growl"  || action === "Growl")  response.write("Growl!");
-        else if(action === "tunes"  || action === "Tunes")  response.write("Tunes!");
+        //else if(action === "tunes"  || action === "Tunes")  response.write("Tunes!");
         else console.log("wut");
 
         response.end('<br/><br/>received fields:\n\n'+util.inspect(fields));
