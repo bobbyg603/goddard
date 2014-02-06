@@ -8,6 +8,7 @@ var wolfram =   require('./modules/wolfram.js');
 var speak =     require('./modules/speak.js');
 var play =      require('./modules/play.js');
 var help =      require('./modules/help.js');
+var stop =      require('./modules/stop.js');
 var ls =        require('./modules/ls.js');
 
 
@@ -137,7 +138,8 @@ function cmd(response, request) {
             else if(action === "why"    || action === "Why")    response.write("Why?");
             else if(action === "how"    || action === "How")    response.write("How?");
             else if(action === "start"  || action === "Start")  response.write("Start!");
-            else if(action === "stop"   || action === "Stop")   response.write("Stop!");
+            else if(action === "stop"   || action === "Stop")   stop.program(arguement);
+            else if(action === "kill"   || action === "Kill")   stop.program(arguement);
             else if(action === "wag"    || action === "Wag")    response.write("WagWag!");
             else if(action === "speak"  || action === "Speak")  response.write("Speaking!");
             else if(action === "kiss"   || action === "Kiss")   response.write("Muah!");

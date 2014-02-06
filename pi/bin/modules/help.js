@@ -25,6 +25,7 @@ exports.list = function show(){
     actions.push("get");
     actions.push("ls");
     actions.push("list");
+    actions.push("kill");
     
     actions.sort();
     
