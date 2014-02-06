@@ -4,7 +4,9 @@ var fs = require("fs");
 var formidable = require("formidable");
 
 //Goddard Modules
-var wolfram = require('./modules/wolfram.js');
+var wolfram =   require('./modules/wolfram.js');
+var speak =     require('./modules/speak.js');
+var play =      require('./modules/play.js');
 
 
 //function start(response, postData) {
@@ -118,8 +120,9 @@ function cmd(response, request) {
         var question = action + " " + arguement;
 
         //These are all of the actions Goddard understands
-        if(action === "say") response.write("Say!");
-        else if(action === "play"   || action === "Play")   response.write("Play!");
+             if(action === "help"   || action === "Help")   response.write("Help!");
+        else if(action === "say"    || action === "Say")    speak.say(arguement);
+        else if(action === "play"   || action === "Play")   play.lookup(arguement);
         else if(action === "fetch"  || action === "Fetch")	response.write("Fetch!");
         else if(action === "sleep"  || action === "Sleep")	response.write("Sleep!");
         else if(action === "come"   || action === "Come")   response.write("Come!");
@@ -136,6 +139,7 @@ function cmd(response, request) {
         else if(action === "speak"  || action === "Speak")  response.write("Speaking!");
         else if(action === "kiss"   || action === "Kiss")   response.write("Muah!");
         else if(action === "growl"  || action === "Growl")  response.write("Growl!");
+        else if(action === "get"    || action === "Get")    response.write("Get!");
         //else if(action === "tunes"  || action === "Tunes")  response.write("Tunes!");
         else console.log("wut");
 
