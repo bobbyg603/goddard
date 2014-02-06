@@ -137,8 +137,8 @@ function cmd(response, request) {
             else if(action === "who"    || action === "Who")    wolfram.ask(question);
             else if(action === "when"   || action === "When")   wolfram.ask(question);
             else if(action === "where"  || action === "Where")	wolfram.ask(question);
-            else if(action === "why"    || action === "Why")    response.write("Why?");
-            else if(action === "how"    || action === "How")    response.write("How?");
+            else if(action === "why"    || action === "Why")    wolfram.ask(question);
+            else if(action === "how"    || action === "How")    wolfram.ask(question);
             else if(action === "start"  || action === "Start")  response.write("Start!");
             else if(action === "stop"   || action === "Stop")   stop.program(arguement);
             else if(action === "kill"   || action === "Kill")   stop.program(arguement);
