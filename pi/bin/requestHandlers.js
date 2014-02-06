@@ -7,6 +7,7 @@ var formidable = require("formidable");
 var wolfram =   require('./modules/wolfram.js');
 var speak =     require('./modules/speak.js');
 var play =      require('./modules/play.js');
+var help =      require('./modules/help.js');
 var ls =        require('./modules/ls.js');
 
 
@@ -95,59 +96,60 @@ function cmd(response, request) {
             console.log('-> post done');
             response.writeHead(200, {'Content-type': 'text/html'});
             
+            //Set the input and log
             q = fields[0][1];
             console.log("fields: " +q);
             response.write("You've sent the command: " + q +"<br/><br/>");
 
-        //Take input and seperate it into action and arguement
-        var qParse = function(cmd) {
-            for(var i=0;i<cmd.length;i++){
-                if(cmd.charAt(i) === " ") {
-                    action = cmd.slice(0,i);
-                    arguement = cmd.slice(i+1,cmd.length);
-                    break;
+            //Take input and seperate it into action and arguement
+            var qParse = function(cmd) {
+                for(var i=0;i<cmd.length;i++){
+                    if(cmd.charAt(i) === " ") {
+                        action = cmd.slice(0,i);
+                        arguement = cmd.slice(i+1,cmd.length);
+                        break;
+                    }
+                    else { action = cmd; arguement = "undefined"; }
                 }
-                else { action = cmd; arguement = "undefined"; }
-            }
-        };
-        //Parse q to determine the action and arguement
-        qParse(q);
-
-        //Display action in HTML
-        response.write("The parsed action is: " + action + "<br/><br/>");
-         response.write("The parsed arguement is: " + arguement + "<br/><br/>");
-        
-        //Prepare the query for wolfram
-        var question = action + " " + arguement;
-
-        //These are all of the actions Goddard understands
-             if(action === "help"   || action === "Help")   response.write("Help!");
-        else if(action === "say"    || action === "Say")    speak.say(arguement);
-        else if(action === "play"   || action === "Play")   play.lookup(arguement);
-        else if(action === "fetch"  || action === "Fetch")	response.write("Fetch!");
-        else if(action === "sleep"  || action === "Sleep")	response.write("Sleep!");
-        else if(action === "come"   || action === "Come")   response.write("Come!");
-        else if(action === "dance"  || action === "Dance")	response.write("Dance!");
-        else if(action === "what"   || action === "What")   wolfram.ask(question);
-        else if(action === "who"    || action === "Who")    wolfram.ask(question);
-        else if(action === "when"   || action === "When")   wolfram.ask(question);
-        else if(action === "where"  || action === "Where")	wolfram.ask(question);
-        else if(action === "why"    || action === "Why")    response.write("Why?");
-        else if(action === "how"    || action === "How")    response.write("How?");
-        else if(action === "start"  || action === "Start")  response.write("Start!");
-        else if(action === "stop"   || action === "Stop")   response.write("Stop!");
-        else if(action === "wag"    || action === "Wag")    response.write("WagWag!");
-        else if(action === "speak"  || action === "Speak")  response.write("Speaking!");
-        else if(action === "kiss"   || action === "Kiss")   response.write("Muah!");
-        else if(action === "growl"  || action === "Growl")  response.write("Growl!");
-        else if(action === "get"    || action === "Get")    response.write(ls.files(arguement));    //doesn't work - needs a callback
-        else if(action === "ls"     || action === "Ls")     response.write(ls.files(arguement));    //doesn't work - needs a callback
-        else if(action === "list"   || action === "List")   response.write(ls.files(arguement));    //doesn't work - needs a callback
-        else console.log("wut");
-
-        response.end('<br/><br/>received fields:\n\n'+util.inspect(fields));
-        //need to add code to cancel the current request
-        //need to add code to start a new request
+            };
+            //Parse q to determine the action and arguement
+            qParse(q);
+    
+            //Display action in HTML
+            response.write("The parsed action is: " + action + "<br/><br/>");
+            response.write("The parsed arguement is: " + arguement + "<br/><br/>");
+            
+            //Prepare the query for wolfram
+            var question = action + " " + arguement;
+    
+            //These are all of the actions Goddard understands
+                 if(action === "help"   || action === "Help")   help.list();
+            else if(action === "say"    || action === "Say")    speak.say(arguement);
+            else if(action === "play"   || action === "Play")   play.lookup(arguement);
+            else if(action === "fetch"  || action === "Fetch")	response.write("Fetch!");
+            else if(action === "sleep"  || action === "Sleep")	response.write("Sleep!");
+            else if(action === "come"   || action === "Come")   response.write("Come!");
+            else if(action === "dance"  || action === "Dance")	response.write("Dance!");
+            else if(action === "what"   || action === "What")   wolfram.ask(question);
+            else if(action === "who"    || action === "Who")    wolfram.ask(question);
+            else if(action === "when"   || action === "When")   wolfram.ask(question);
+            else if(action === "where"  || action === "Where")	wolfram.ask(question);
+            else if(action === "why"    || action === "Why")    response.write("Why?");
+            else if(action === "how"    || action === "How")    response.write("How?");
+            else if(action === "start"  || action === "Start")  response.write("Start!");
+            else if(action === "stop"   || action === "Stop")   response.write("Stop!");
+            else if(action === "wag"    || action === "Wag")    response.write("WagWag!");
+            else if(action === "speak"  || action === "Speak")  response.write("Speaking!");
+            else if(action === "kiss"   || action === "Kiss")   response.write("Muah!");
+            else if(action === "growl"  || action === "Growl")  response.write("Growl!");
+            else if(action === "get"    || action === "Get")    response.write(ls.files(arguement));    //doesn't work - needs a callback
+            else if(action === "ls"     || action === "Ls")     response.write(ls.files(arguement));    //doesn't work - needs a callback
+            else if(action === "list"   || action === "List")   response.write(ls.files(arguement));    //doesn't work - needs a callback
+            else console.log("wut");
+    
+            response.end('<br/><br/>received fields:\n\n'+util.inspect(fields));
+            //need to add code to cancel the current request
+            //need to add code to start a new request
         });
     form.parse(request);
 }
