@@ -149,6 +149,7 @@ function cmd(response, request) {
             else if(action === "get"    || action === "Get")    response.write(ls.files(arguement));    //doesn't work - needs a callback
             else if(action === "ls"     || action === "Ls")     response.write(ls.files(arguement));    //doesn't work - needs a callback
             else if(action === "list"   || action === "List")   response.write(ls.files(arguement));    //doesn't work - needs a callback
+            else if(action === "tweet"  || action === "Tweet")  response.write("Tweet tweet!");
             else console.log("wut");
     
             response.end('<br/><br/>received fields:\n\n'+util.inspect(fields));
