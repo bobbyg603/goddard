@@ -129,9 +129,9 @@ function cmd(response, request) {
             else if(action === "play"   || action === "Play")   play.lookup(arguement);
             else if(action === "bump"   || action === "Bump")   play.lookup("HipHop.mp3");
             else if(action === "fetch"  || action === "Fetch")	response.write("Fetch!");
-            else if(action === "sleep"  || action === "Sleep")	response.write("Sleep!");
+            else if(action === "sleep"  || action === "Sleep")	play.lookup("sleep.mp3");
             else if(action === "come"   || action === "Come")   response.write("Come!");
-            else if(action === "dance"  || action === "Dance")	response.write("Dance!");
+            else if(action === "dance"  || action === "Dance")	play.lookup("dance.mp3");
             else if(action === "what"   || action === "What")   wolfram.ask(question);
             else if(action === "who"    || action === "Who")    wolfram.ask(question);
             else if(action === "when"   || action === "When")   wolfram.ask(question);
