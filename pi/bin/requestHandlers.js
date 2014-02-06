@@ -29,6 +29,7 @@ function start(response) {
 	'<input type="submit" value="Upload file" />' +
 	'</form>' +
 	'<h2>text command</h2><br/>' +
+	'type help for a list of commands<br/>' +
 	'<form action="/cmd" method="post">' +
 	'<input type="text" name="cmd"/><br/>' +
 	'<input type="submit" value="Submit text"/>' +
