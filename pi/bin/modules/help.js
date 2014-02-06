@@ -29,6 +29,8 @@ exports.list = function show(){
     actions.push("bark");
     actions.push("bump");
     actions.push("tweet");
+    actions.push("move");
+    actions.push("go");
     
     actions.sort();
     

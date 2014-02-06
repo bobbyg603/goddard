@@ -151,7 +151,9 @@ function cmd(response, request) {
             else if(action === "ls"     || action === "Ls")     response.write(ls.files(arguement));    //doesn't work - needs a callback
             else if(action === "list"   || action === "List")   response.write(ls.files(arguement));    //doesn't work - needs a callback
             else if(action === "tweet"  || action === "Tweet")  response.write("Tweet tweet!");
-            else console.log("wut");
+            else if(action === "move"   || action === "Move")   response.write("Move!");
+            else if(action === "go"     || action === "Go")     response.write("Go!");
+            else speak.say("Sorry, I don't understand your command");
     
             response.end('<br/><br/>received fields:\n\n'+util.inspect(fields));
             //need to add code to cancel the current request
