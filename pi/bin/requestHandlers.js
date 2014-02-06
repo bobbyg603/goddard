@@ -143,7 +143,7 @@ function cmd(response, request) {
             else if(action === "wag"    || action === "Wag")    response.write("WagWag!");
             else if(action === "speak"  || action === "Speak")  response.write("Speaking!");
             else if(action === "kiss"   || action === "Kiss")   response.write("Muah!");
-            else if(action === "growl"  || action === "Growl")  response.write("Growl!");
+            else if(action === "growl"  || action === "Growl")  speak.say("Rrrrr!");
             else if(action === "get"    || action === "Get")    response.write(ls.files(arguement));    //doesn't work - needs a callback
             else if(action === "ls"     || action === "Ls")     response.write(ls.files(arguement));    //doesn't work - needs a callback
             else if(action === "list"   || action === "List")   response.write(ls.files(arguement));    //doesn't work - needs a callback
