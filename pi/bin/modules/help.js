@@ -27,6 +27,7 @@ exports.list = function show(){
     actions.push("list");
     actions.push("kill");
     actions.push("bark");
+    actions.push("bump");
     
     actions.sort();
     
