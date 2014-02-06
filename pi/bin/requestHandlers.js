@@ -23,12 +23,12 @@ function start(response) {
 	'</head>' +
 	'<body>' +
 	'<h1>goddard</h1>' +
-	'<h2>upload file</h2><br/>' +
+	'<h2>upload file</h2>' +
 	'<form action="/upload" enctype="multipart/form-data" method="post">' +
-	'<input type="file" name="upload" multiple="multiple">' +
+	'<input type="file" name="upload" multiple="multiple"><br/>' +
 	'<input type="submit" value="Upload file" />' +
 	'</form>' +
-	'<h2>text command</h2><br/>' +
+	'<h2>text command</h2>' +
 	'type help for a list of commands<br/>' +
 	'<form action="/cmd" method="post">' +
 	'<input type="text" name="cmd"/><br/>' +
