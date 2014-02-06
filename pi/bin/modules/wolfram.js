@@ -1,5 +1,5 @@
 var wolfram = require('wolfram').createClient("2P3U5X-5YLPLVYPJH");
-var talk = require('./speak.js');
+var speak = require('./speak.js');
 
 exports.ask = function start(q) {
     var finalResult = "";
@@ -23,6 +23,6 @@ exports.ask = function start(q) {
 			finalResult = newResult.replace("+"," plus ").replace("-"," minus ").replace("$"," in US Dollars ");
 		}
 	console.log(finalResult);
-	talk.say(finalResult);
+    speak.say(finalResult);
     });
 };
