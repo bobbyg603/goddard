@@ -1,3 +1,5 @@
+//Takes the user's question and queries the WolframAlpha API
+
 var wolfram = require('wolfram').createClient("2P3U5X-5YLPLVYPJH");
 var speak = require('./speak.js');
 

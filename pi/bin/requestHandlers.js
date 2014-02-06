@@ -7,6 +7,7 @@ var formidable = require("formidable");
 var wolfram =   require('./modules/wolfram.js');
 var speak =     require('./modules/speak.js');
 var play =      require('./modules/play.js');
+var ls =        require('./modules/ls.js');
 
 
 //function start(response, postData) {
@@ -139,11 +140,14 @@ function cmd(response, request) {
         else if(action === "speak"  || action === "Speak")  response.write("Speaking!");
         else if(action === "kiss"   || action === "Kiss")   response.write("Muah!");
         else if(action === "growl"  || action === "Growl")  response.write("Growl!");
-        else if(action === "get"    || action === "Get")    response.write("Get!");
-        //else if(action === "tunes"  || action === "Tunes")  response.write("Tunes!");
+        else if(action === "get"    || action === "Get")    response.write(ls.files(arguement));    //doesn't work - needs a callback
+        else if(action === "ls"     || action === "Ls")     response.write(ls.files(arguement));    //doesn't work - needs a callback
+        else if(action === "list"   || action === "List")   response.write(ls.files(arguement));    //doesn't work - needs a callback
         else console.log("wut");
 
         response.end('<br/><br/>received fields:\n\n'+util.inspect(fields));
+        //need to add code to cancel the current request
+        //need to add code to start a new request
         });
     form.parse(request);
 }

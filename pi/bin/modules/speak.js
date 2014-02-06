@@ -1,3 +1,5 @@
+//Takes the user's arguement and does text to speech
+
 var exec = require("child_process").exec;
 
 exports.say = function speak(words) {

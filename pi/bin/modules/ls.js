@@ -1,11 +1,11 @@
-//Takes the user's arguement looks for a matching song, then plays it
+//Takes the user's arguement and prints a list of files in that directory
 
 var exec = require("child_process").exec;
 
-exports.lookup = function lookup(song) {
+exports.files = function lookup(folder) {
     
-    //var cmd = "mpg123 " + song;
-    var cmd = "cd ./pi/bin/media && mpg123 " + song;
+    var cmd = "cd ./pi/bin/" + folder +" && ls";
+    var out = "";
     
     exec(cmd,function(error, stdout, stderr) {
 		//Get the directory listing
@@ -13,6 +13,8 @@ exports.lookup = function lookup(song) {
         //sys.print('stderr:' + stderr);
         if(error !== null) {
             console.log('exec error' + error);
-        }
+            out = error;
+        } else out = "Files in directory " + folder + ":\n" +stdout;
     });
+    return out;
 };
