@@ -127,6 +127,7 @@ function cmd(response, request) {
                  if(action === "help"   || action === "Help")   help.list();
             else if(action === "say"    || action === "Say")    speak.say(arguement);
             else if(action === "play"   || action === "Play")   play.lookup(arguement);
+            else if(action === "bump"   || action === "Bump")   play.lookup("HipHop.mp3");
             else if(action === "fetch"  || action === "Fetch")	response.write("Fetch!");
             else if(action === "sleep"  || action === "Sleep")	response.write("Sleep!");
             else if(action === "come"   || action === "Come")   response.write("Come!");
