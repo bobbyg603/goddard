@@ -31,6 +31,7 @@ exports.list = function show(){
     actions.push("tweet");
     actions.push("move");
     actions.push("go");
+    actions.push("make");
     
     actions.sort();
     

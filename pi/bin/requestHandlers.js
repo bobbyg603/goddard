@@ -154,6 +154,7 @@ function cmd(response, request) {
             else if(action === "move"   || action === "Move")   response.write("Move!");
             else if(action === "go"     || action === "Go")     response.write("Go!");
             else if(action === "scold"  || action === "Scold")  response.write("I'm sorry!");
+            else if(action === "make"   || action === "make")   response.write("I'm makin!");
             else speak.say("Sorry, I don't understand your command");
     
             response.end('<br/><br/>received fields:\n\n'+util.inspect(fields));
