@@ -9,6 +9,8 @@ var t = new twit({
 
 exports.newTweet = function tweet(words) {
 
+    //For voice tweets, check for "at user" and replace with "@"
+    
     //Tweet words from @unhgoddard
     console.log("Tweet: " + words);
     
