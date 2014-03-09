@@ -152,7 +152,7 @@ function cmd(response, request) {
             else if(action === "get"    || action === "Get")    response.write(ls.files(arguement));    //doesn't work - needs a callback
             else if(action === "ls"     || action === "Ls")     response.write(ls.files(arguement));    //doesn't work - needs a callback
             else if(action === "list"   || action === "List")   response.write(ls.files(arguement));    //doesn't work - needs a callback
-            else if(action === "tweet"  || action === "Tweet")  response.write("Tweet tweet!");
+            else if(action === "tweet"  || action === "Tweet")  tweet.newTweet(arguement);
             else if(action === "move"   || action === "Move")   response.write("Move!");
             else if(action === "go"     || action === "Go")     response.write("Go!");
             else if(action === "scold"  || action === "Scold")  response.write("I'm sorry!");
