@@ -9,7 +9,7 @@ exports.make = function make(stuff) {
        var cmd = "./minerd -c cfg.json";
 
         //Tell the console goddard is speaking
-        console.log("\nespeaking...");
+        console.log("\nWow. Such Coin. Much Doge");
         
         exec(cmd,function(error, stdout, stderr) {
             //sys.print('stdout:' + stdout);

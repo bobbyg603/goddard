@@ -10,6 +10,8 @@ var play =      require('./modules/play.js');
 var help =      require('./modules/help.js');
 var stop =      require('./modules/stop.js');
 var ls =        require('./modules/ls.js');
+var make =      require('./modules/make.js');
+var tweet =     require('./modules/tweet.js');
 
 
 //function start(response, postData) {
@@ -154,7 +156,7 @@ function cmd(response, request) {
             else if(action === "move"   || action === "Move")   response.write("Move!");
             else if(action === "go"     || action === "Go")     response.write("Go!");
             else if(action === "scold"  || action === "Scold")  response.write("I'm sorry!");
-            else if(action === "make"   || action === "Make")   response.write("I'm makin!");
+            else if(action === "make"   || action === "Make")   make.make(arguement);
             else if(action === "translate" || action === "Translate") ;
             else speak.say("Sorry, I don't understand your command");
     
