@@ -10,7 +10,7 @@ var t = new twit({
 exports.newTweet = function tweet(words) {
 
     //Tweet words from @unhgoddard
-    console.log(words);
+    console.log("Tweet: " + words);
     
     t.post('statuses/update', { status: words }, function(err, reply) {
       if(err) {console.log(err);}

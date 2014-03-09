@@ -155,7 +155,7 @@ function cmd(response, request) {
             else if(action === "tweet"  || action === "Tweet")  tweet.newTweet(arguement);
             else if(action === "move"   || action === "Move")   response.write("Move!");
             else if(action === "go"     || action === "Go")     response.write("Go!");
-            else if(action === "scold"  || action === "Scold")  response.write("I'm sorry!");
+            else if(action === "scold"  || action === "Scold")  speak.say("I'm sorry!");
             else if(action === "make"   || action === "Make")   make.make(arguement);
             else if(action === "translate" || action === "Translate") ;
             else speak.say("Sorry, I don't understand your command");
