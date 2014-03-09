@@ -60,16 +60,16 @@ function upload(response, request) {
 	form.parse(request, function(error, fields, files) {
 		console.log("parsing done.");
 		
-		fs.rename(files.upload.path, "/tmp/test.png", function(error) {
+		fs.rename(files.upload.path, "/tmp/voice.m4a", function(error) {
 			if (error) {
-				fs.unlink("/tmp/test.png");
-				fs.rename(files.upload.path, "/tmp/test.png");
+				fs.unlink("/tmp/voice.m4a");
+				fs.rename(files.upload.path, "/tmp/voice.m4a");
 			}
 		});
 	
 		response.writeHead(200, {"Content-Type": "text/html"});
 		response.write("Recieved image:<br/>");
-		response.write("<img src='/show' />");
+		response.write("<embed src='/show' />");
 		response.end();
 	});
 }
@@ -166,8 +166,8 @@ function cmd(response, request) {
 
 function show(response) {
 	console.log("Request handler 'show' was called.");
-	response.writeHead(200, {"Content-Type" : "image/png"});
-	fs.createReadStream("/tmp/test.png").pipe(response);
+	response.writeHead(200, {"Content-Type" : "audio/mpeg"});
+	fs.createReadStream("/tmp/voice.m4a").pipe(response);
 }
 
 exports.start = start;
