@@ -32,6 +32,7 @@ exports.list = function show(){
     actions.push("move");
     actions.push("go");
     actions.push("make");
+    actions.push("translate");
     
     actions.sort();
     
