@@ -82,7 +82,7 @@ function cmd(response, request) {
     var fields = [];
     var q = "";
     var action = "";
-    var arguement = "";
+    var argument = "";
     
     console.log("about to parse...");
 
@@ -105,31 +105,31 @@ function cmd(response, request) {
             console.log("fields: " +q);
             response.write("You've sent the command: " + q +"<br/><br/>");
 
-            //Take input and seperate it into action and arguement
+            //Take input and seperate it into action and argument
             var qParse = function(cmd) {
                 for(var i=0;i<cmd.length;i++){
                     if(cmd.charAt(i) === " ") {
                         action = cmd.slice(0,i);
-                        arguement = cmd.slice(i+1,cmd.length);
+                        argument = cmd.slice(i+1,cmd.length);
                         break;
                     }
-                    else { action = cmd; arguement = "undefined"; }
+                    else { action = cmd; argument = "undefined"; }
                 }
             };
-            //Parse q to determine the action and arguement
+            //Parse q to determine the action and argument
             qParse(q);
     
             //Display action in HTML
             response.write("The parsed action is: " + action + "<br/><br/>");
-            response.write("The parsed arguement is: " + arguement + "<br/><br/>");
+            response.write("The parsed argument is: " + argument + "<br/><br/>");
             
             //Prepare the query for wolfram
-            var question = action + " " + arguement;
+            var question = action + " " + argument;
     
             //These are all of the actions Goddard understands
                  if(action === "help"   || action === "Help")   help.list();
-            else if(action === "say"    || action === "Say")    speak.say(arguement);
-            else if(action === "play"   || action === "Play")   play.lookup(arguement);
+            else if(action === "say"    || action === "Say")    speak.say(argument);
+            else if(action === "play"   || action === "Play")   play.lookup(argument);
             else if(action === "bump"   || action === "Bump")   play.lookup("HipHop.mp3");
             else if(action === "fetch"  || action === "Fetch")	response.write("Fetch!");
             else if(action === "sleep"  || action === "Sleep")	play.lookup("sleep.mp3");
@@ -142,21 +142,21 @@ function cmd(response, request) {
             else if(action === "why"    || action === "Why")    wolfram.ask(question);
             else if(action === "how"    || action === "How")    wolfram.ask(question);
             else if(action === "start"  || action === "Start")  response.write("Start!");
-            else if(action === "stop"   || action === "Stop")   stop.program(arguement);
-            else if(action === "kill"   || action === "Kill")   stop.program(arguement);
+            else if(action === "stop"   || action === "Stop")   stop.program(argument);
+            else if(action === "kill"   || action === "Kill")   stop.program(argument);
             else if(action === "wag"    || action === "Wag")    response.write("WagWag!");
             else if(action === "speak"  || action === "Speak")  play.lookup("bark.mp3");
             else if(action === "kiss"   || action === "Kiss")   play.lookup("kiss.mp3");
             else if(action === "growl"  || action === "Growl")  play.lookup("growl.mp3");
             else if(action === "bark"   || action === "Bark")   play.lookup("bark.mp3");
-            else if(action === "get"    || action === "Get")    response.write(ls.files(arguement));    //doesn't work - needs a callback
-            else if(action === "ls"     || action === "Ls")     response.write(ls.files(arguement));    //doesn't work - needs a callback
-            else if(action === "list"   || action === "List")   response.write(ls.files(arguement));    //doesn't work - needs a callback
-            else if(action === "tweet"  || action === "Tweet")  tweet.newTweet(arguement);
+            else if(action === "get"    || action === "Get")    response.write(ls.files(argument));    //doesn't work - needs a callback
+            else if(action === "ls"     || action === "Ls")     response.write(ls.files(argument));    //doesn't work - needs a callback
+            else if(action === "list"   || action === "List")   response.write(ls.files(argument));    //doesn't work - needs a callback
+            else if(action === "tweet"  || action === "Tweet")  tweet.newTweet(argument);
             else if(action === "move"   || action === "Move")   response.write("Move!");
             else if(action === "go"     || action === "Go")     response.write("Go!");
             else if(action === "scold"  || action === "Scold")  speak.say("I'm sorry!");
-            else if(action === "make"   || action === "Make")   make.make(arguement);
+            else if(action === "make"   || action === "Make")   make.make(argument);
             else if(action === "translate" || action === "Translate") ;
             else speak.say("Sorry, I don't understand your command");
     
