@@ -18,11 +18,11 @@
   ],
   "author": "Bobby Galli",
   "dependencies" : {
-    	"wolfram" : "*",
-    	"formidable": "*",
-  	"mongoose" : "3.6.x",
+    "wolfram" : "*",
+    "formidable": "*",
   	"express" : "3.2.x",
-  	"ejs" : "0.8.x"
+  	"ejs" : "0.8.x",
+  	"twit" : "1.x.x"
   },
   "license": "MIT",
   "bugs": {
