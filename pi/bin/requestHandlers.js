@@ -70,7 +70,7 @@ function upload(response, request) {
 		});
 	
 		response.writeHead(200, {"Content-Type": "text/html"});
-		response.write("Recieved image:<br/>");
+		response.write("Recieved File:<br/>");
 		response.write("<embed src='/show' />");
 		response.end();
 	});
@@ -160,7 +160,7 @@ function cmd(response, request) {
             else if(action === "translate" || action === "Translate") ;
             else speak.say("Sorry, I don't understand your command");
     
-            response.end('<br/>received fields:\n\n'+util.inspect(fields)+'<br/><button type="button" onclick="history.go(-2);">Again!</button>');
+            response.end('<br/>received fields:\n\n'+util.inspect(fields)+'<br/><button type="button" onclick="window.history.back();">Again!</button>');
             //need to add code to cancel the current request
             //need to add code to start a new request
         });
