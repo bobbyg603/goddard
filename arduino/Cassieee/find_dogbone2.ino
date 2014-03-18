@@ -139,85 +139,74 @@ void readTransceiverandSetDirection()
    }
 }
 
-
-
 void moveNorth()
 {
     Serial.print("N");
     // Move Goddard Foward .
-    delay(100);
-    digitalWrite(ledPin,HIGH); //set led HIGH
-    delay(100);
-    digitalWrite(ledPin,LOW); //set led HIGH
-    delay(100);
-    digitalWrite(ledPin,HIGH); //set led HIGH
-    analogWrite(Motor_Left_pwmPin,100);
-    analogWrite(Motor_Right_pwmPin,100);
-    digitalWrite(Motor_Left_Pin1,LOW);
-    digitalWrite(Motor_Left_Pin2,HIGH);
-    digitalWrite(Motor_Right_Pin1,HIGH);
-    digitalWrite(Motor_Right_Pin2,LOW);
+    moveFoward();
 }
 
 void moveSouth()
 {
   Serial.print("S");
-    // Move Goddard back .
-    delay(100);
-    digitalWrite(ledPin,HIGH); //set led HIGH
-    delay(100);
-    digitalWrite(ledPin,LOW); //set led HIGH
-    delay(100);
-    digitalWrite(ledPin,HIGH); //set led HIGH
-    analogWrite(Motor_Left_pwmPin,100);
-    analogWrite(Motor_Right_pwmPin,100);
-    digitalWrite(Motor_Left_Pin1,HIGH);
-    digitalWrite(Motor_Left_Pin2,LOW);
-    digitalWrite(Motor_Right_Pin1,LOW);
-    digitalWrite(Motor_Right_Pin2,HIGH);
+    //Move goddard Backward
+    moveBackward();
 }
 
 void moveEast()
 {
   Serial.print("E");
     // Turn Goddard right.
-    delay(100);
-    digitalWrite(ledPin,HIGH); //set led HIGH
-    delay(100);
-    digitalWrite(ledPin,LOW); //set led HIGH
-    delay(100);
-    digitalWrite(ledPin,HIGH); //set led HIGH
-    analogWrite(Motor_Left_pwmPin,100);
-    analogWrite(Motor_Right_pwmPin,100);
-    digitalWrite(Motor_Left_Pin1,LOW);
-    digitalWrite(Motor_Left_Pin2,HIGH);
-    digitalWrite(Motor_Right_Pin1,LOW);
-    digitalWrite(Motor_Right_Pin2,HIGH);
-    
-    
+    inPlaceTurnRight();
 }
 
 void moveWest()
 {
   Serial.print("W");
      // Turn Goddard Left.
-    delay(10);
-    digitalWrite(ledPin,HIGH); //set led HIGH
-    delay(100);
-    digitalWrite(ledPin,LOW); //set led HIGH
-    delay(100);
-    digitalWrite(ledPin,HIGH); //set led HIGH
-    analogWrite(Motor_Left_pwmPin,100);
-    analogWrite(Motor_Right_pwmPin,100);
+     inPlaceTurnLeft();
+}
+
+void moveFoward()
+ {
+    analogWrite(Motor_Left_pwmPin,150);
+    analogWrite(Motor_Right_pwmPin,150);
+    digitalWrite(Motor_Left_Pin1,LOW);
+    digitalWrite(Motor_Left_Pin2,HIGH);
+    digitalWrite(Motor_Right_Pin1,HIGH);
+    digitalWrite(Motor_Right_Pin2,LOW);
+ }
+ 
+ void moveBackward()
+ {
+    analogWrite(Motor_Left_pwmPin,150);
+    analogWrite(Motor_Right_pwmPin,150);
     digitalWrite(Motor_Left_Pin1,HIGH);
     digitalWrite(Motor_Left_Pin2,LOW);
     digitalWrite(Motor_Right_Pin1,LOW);
     digitalWrite(Motor_Right_Pin2,HIGH);
-    
-   
-}
+ }
 
-
+  
+  void inPlaceTurnLeft()
+ {
+    analogWrite(Motor_Left_pwmPin,150);
+    analogWrite(Motor_Right_pwmPin,150);
+    digitalWrite(Motor_Left_Pin1,HIGH);
+    digitalWrite(Motor_Left_Pin2,LOW);
+    digitalWrite(Motor_Right_Pin1,HIGH);
+    digitalWrite(Motor_Right_Pin2,LOW);  
+ }
+ 
+ void inPlaceTurnRight()
+ {
+    analogWrite(Motor_Left_pwmPin,150);
+    analogWrite(Motor_Right_pwmPin,150);
+    digitalWrite(Motor_Left_Pin1,LOW);
+    digitalWrite(Motor_Left_Pin2,HIGH);
+    digitalWrite(Motor_Right_Pin1,LOW);
+    digitalWrite(Motor_Right_Pin2,HIGH);
+ }
 
 boolean array_cmp(int *a, int *b, int len_a, int len_b){
       int n;
