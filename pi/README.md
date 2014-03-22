@@ -1,4 +1,3 @@
-goddard
-=======
+The Goddard Project (c) 2014
 
-Raspberry Pi code for The Goddard Project
+@unhgoddard | @bobbyg603
