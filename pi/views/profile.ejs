@@ -8,32 +8,53 @@
 	<style>
 		body 		{ padding-top:80px; word-wrap:break-word; }
 	</style>
+	 
+	<!--Annyang Voice Recognition-->
+	<script src="//cdnjs.cloudflare.com/ajax/libs/annyang/1.1.0/annyang.min.js"></script>
+    <script>
+    if (annyang) {
+      // Let's define our first command. First the text we expect, and then the function it should call
+      var commands = {
+        'goddard *msg': function(msg) {
+          alert("Goddard " +msg);
+          
+        }
+      };
+    
+      // Add our commands to annyang
+      annyang.addCommands(commands);
+    
+      // Start listening. You can call this here, or attach this call to an event, button, etc.
+      annyang.start();
+    }
+    </script>
 </head>
 <body>
 <div class="container">
 
-	<div class="page-header text-center">
-		<h1><span class="fa fa-anchor"></span> Profile Page</h1>
-		<a href="/logout" class="btn btn-default btn-sm">Logout</a>
-	</div>
+    
+    <center>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREKM54ho1eLic4PZkR9_HyYtUtbBw1HGI_y55j6_WeZY01p4T9Rg"/>
+            <h1>Listening for commands!</h1>
+    </center>
 
-	<div class="row">
-
-		<!-- LOCAL INFORMATION -->
-		<div class="col-sm-6">
-			<div class="well">
-				<h3><span class="fa fa-user"></span> Local</h3>
-
-					<p>
-						<strong>id</strong>: <%= user._id %><br>
-						<strong>email</strong>: <%= user.local.email %><br>
-						<strong>password</strong>: <%= user.local.password %>
-					</p>
-
-			</div>
-		</div>
-
-	</div>
+    <!--
+    <div class="row">
+        <div class="col-xs-6">
+            <center>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREKM54ho1eLic4PZkR9_HyYtUtbBw1HGI_y55j6_WeZY01p4T9Rg"/>
+            <h1>Speak now!</h1>
+            </center>
+        </div>
+        
+        <div class="col-xs-6">
+            <center>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREKM54ho1eLic4PZkR9_HyYtUtbBw1HGI_y55j6_WeZY01p4T9Rg"/>
+            <h1>Speak now!</h1>
+            </center>
+        </div>
+    </div>
+    -->
 
 </div>
 </body>
