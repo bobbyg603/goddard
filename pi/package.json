@@ -26,7 +26,9 @@
     "connect-flash" : "~0.1.1", 	
     "bcrypt-nodejs" : "latest",
     
-    "socket.io" : "~0.9.16"
+    "socket.io" : "~0.9.16",
+    "wolfram" : "~0.2.7",
+    "twit" : "~1.1.12"
   },
   "license": "MIT",
   "bugs": {

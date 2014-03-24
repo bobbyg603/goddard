@@ -14,6 +14,9 @@ var flash 	 = require('connect-flash');
 
 var configDB = require('./config/database.js');
 
+//bobby's code library
+var qparse = require('./app/lib/qparse.js');
+
 // configuration ===============================================================
 mongoose.connect(configDB.url); // connect to our database
 
@@ -52,6 +55,7 @@ io.sockets.on('connection', function (socket) {
   socket.emit('news', "hello from the server!");
   socket.on('new voice data', function (data) {
     console.log(">> " + data);
+    qparse.parse(data);
   });
   socket.on('status', function(status) {
     console.log(">> " + status);
