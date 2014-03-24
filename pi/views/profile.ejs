@@ -9,15 +9,25 @@
 		body 		{ padding-top:80px; word-wrap:break-word; }
 	</style>
 	 
-	<!--Annyang Voice Recognition-->
+	<!--Socket.io-->
+    <script src="/socket.io/socket.io.js"></script>
+    
+    <!--Annyang Voice Recognition-->
 	<script src="//cdnjs.cloudflare.com/ajax/libs/annyang/1.1.0/annyang.min.js"></script>
+	
     <script>
+      var socket = io.connect('https://v2-c9-bobbyg603.c9.io');
+      socket.on('news', function (data) {
+        console.log(data);
+        socket.emit('status', "hello from the client!");
+      });
+
     if (annyang) {
       // Let's define our first command. First the text we expect, and then the function it should call
       var commands = {
         'goddard *msg': function(msg) {
+          socket.emit('new voice data', msg)
           alert("Goddard " +msg);
-          
         }
       };
     
