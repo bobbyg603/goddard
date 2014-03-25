@@ -5,6 +5,8 @@ var exec = require("child_process").exec;
 exports.program = function kill(program) {
     
     //var cmd = "ls";
+    if(program == "audio") program = "mpg123";    
+
     if(program !== "node" && program !== "Node") {
         var cmd = "killall " + program;
         
