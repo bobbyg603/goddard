@@ -57,9 +57,11 @@ exports.parse = function parse(cmd) {
     else if(action === "list"   || action === "List")   console.log(ls.files(argument));
     else if(action === "tweet"  || action === "Tweet")  tweet.newTweet(argument);
     else if(action === "move"   || action === "Move")   console.log("Move!");
-    else if(action === "go"     || action === "Go")     console.log("Go!");
+    else if(action === "go"     || action === "Go")     console.log("Go!"); //Do the same as move
     else if(action === "scold"  || action === "Scold")  speak.say("I'm sorry!");
     else if(action === "make"   || action === "Make")   make.make(argument);
+    else if(action === "roam"   || action === "Roam")   console.log("Roaming!");
+    else if(action === "wake"   || action === "Wake")   console.log("I'm awake!");
     else if(action === "translate" || action === "Translate") ;
     else speak.say("Sorry, I don't understand your command");
 };

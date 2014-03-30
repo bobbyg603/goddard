@@ -14,7 +14,6 @@ exports.list = function show(){
     actions.push("when");
     actions.push("where");
     actions.push("why");
-    actions.push("why");
     actions.push("how");
     actions.push("start");
     actions.push("stop");
@@ -33,6 +32,9 @@ exports.list = function show(){
     actions.push("go");
     actions.push("make");
     actions.push("translate");
+    actions.push("roam");
+    actions.push("wake");
+    actions.push("scold");
     
     actions.sort();
     
