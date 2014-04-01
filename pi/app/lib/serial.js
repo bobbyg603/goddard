@@ -1,3 +1,4 @@
+var success;
 var SerialPort = require("serialport").SerialPort;
 var serialPort = new SerialPort('/dev/ttyACM0', 
     {   baudrate: 9600,
@@ -11,9 +12,13 @@ serialPort.on("open", function () {
     console.log('open');
     serialPort.on('data', function(data) {
         console.log('data received: ' + data);
+	success=data;
     });
-    serialPort.write(new Buffer("48", 'ascii'), function(err, results) {
-        console.log('err ' + err);
-        console.log('results ' + results);
-    });
+    for(var i=0;i<100;i++){
+    	serialPort.write(new Buffer("4", 'ascii'), function(err, results) {
+        	if(err!=undefined)   console.log('err ' + err);
+		// callback code here
+    	});
+    if(success=='Y') break; 
+   }
 });
