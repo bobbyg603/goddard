@@ -12,7 +12,7 @@ serialPort.on("open", function () {
     serialPort.on('data', function(data) {
         console.log('data received: ' + data);
         });
-    serialPort.write("Hello from Raspberry Pi\n", function(err, results) {
+    serialPort.write(9, function(err, results) {
         console.log('err ' + err);
         console.log('results ' + results);
         });
