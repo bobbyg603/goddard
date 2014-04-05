@@ -11,11 +11,8 @@ serialPort.on("open", function () {
     if(data==='Y') sendThis = '9';
   });
   
-  var write = serialPort.write(new Buffer(sendThis,'ascii'), function(err, results) {
+serialPort.write(new Buffer(sendThis,'ascii'), function(err, results) {
     console.log('err ' + err);
     console.log('results ' + results);
   });
-  
-  for(var i=0;i<100;i++) write();
-
 });
