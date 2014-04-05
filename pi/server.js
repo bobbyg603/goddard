@@ -14,6 +14,17 @@ var flash 	 = require('connect-flash');
 
 var configDB = require('./config/database.js');
 
+// serial communications init
+var SerialPort = require("serialport").SerialPort;
+var serialPort = new SerialPort("/dev/ttyACM0", {
+  baudrate: 9600
+});
+var serialDataOut = '9';
+
+serialPort.on("open", function () {
+  console.log('open');
+});
+
 //bobby's code library
 var qparse = require('./app/lib/qparse.js');
 console.log("finished requires");
@@ -65,6 +76,11 @@ io.sockets.on('connection', function (socket) {
   });
   socket.on('button data', function(btn) {
     console.log(">> " +btn);
+    serialPort.write(new Buffer(serialDataOut,'ascii'), function(err, results) {
+        console.log('sent '+ serialDataOut);
+        console.log('err ' + err);
+        console.log('results ' + results);
+    });
   });
   socket.on('status', function(status) {
     console.log(">> " + status);
