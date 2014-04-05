@@ -5,7 +5,7 @@
 var express  = require('express');
 var app = express();
 var server = require('http').createServer(app);
-var io = io = require('socket.io').listen(server);
+var io = require('socket.io').listen(server);
 
 var port     = process.env.PORT || 8080;
 var mongoose = require('mongoose');
@@ -33,7 +33,10 @@ app.configure(function() {
 
     app.set('views', __dirname + '/views'); //overwrite the default /views location
 	app.set('view engine', 'ejs'); // set up ejs for templating
-
+    
+    app.use('/public', express.static(__dirname + "/public"));
+    
+    console.log(__dirname);
 	// required for passport
 	app.use(express.session({ secret: 'ilovescotchscotchyscotchscotch' })); // session secret
 	app.use(passport.initialize());
@@ -56,9 +59,12 @@ console.log('The magic happens on port ' + port);
 // socket.io ===================================================================
 io.sockets.on('connection', function (socket) {
   socket.emit('news', "hello from the server!");
-  socket.on('new voice data', function (data) {
+  socket.on('voice data', function (data) {
     console.log(">> " + data);
     qparse.parse(data);
+  });
+  socket.on('button data', function(btn) {
+    console.log(">> " +btn);
   });
   socket.on('status', function(status) {
     console.log(">> " + status);

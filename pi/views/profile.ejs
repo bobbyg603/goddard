@@ -5,8 +5,21 @@
 	<title>UNH Goddard | Cmd</title>
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<style>
-		body 		{ padding-top:80px; word-wrap:break-word; }
+		body 		    { padding-top:0px; word-wrap:break-word; }
+		.col-xs-2         { height:75px; line-height:75px; background-color:white; color:black;}
+		.col-xs-2:active  { background-color:black; color:white; }
+		.col-xs-3         { height:75px; line-height:75px; background-color:white; color:black;}
+		.col-xs-3:active  { background-color:black; color:white; }
+	    .btnText          {
+	                        -webkit-touch-callout: none;
+                            -webkit-user-select: none;
+                            -khtml-user-select: none;
+                            -moz-user-select: none;
+                            -ms-user-select: none;
+                            user-select: none;
+	                      }
 	</style>
 	 
 	<!--Socket.io-->
@@ -18,16 +31,42 @@
     <script>
       var socket = io.connect('https://v2-c9-bobbyg603.c9.io');
       //var socket = io.connect('raspberrypi.local:8888');
+      
       socket.on('news', function (data) {
         console.log(data);
         socket.emit('status', "hello from the client!");
       });
-
+      
+      var btnPress = function(btn) {
+          console.log(btn);
+          socket.emit('button data', btn);
+          switch(btn){
+            case "a0" : document.getElementById("console").innerHTML = "helping!"; break;
+            case "a1" : document.getElementById("console").innerHTML = "barking!"; break;
+            case "a2" : document.getElementById("console").innerHTML = "growling!"; break;
+            case "a3" : document.getElementById("console").innerHTML = "roaming!"; break;
+            case "a4" : document.getElementById("console").innerHTML = "wagging!"; break;
+            case "a5" : document.getElementById("console").innerHTML = "dancing!"; break;
+            case "a6" : document.getElementById("console").innerHTML = "djing!"; break;
+            case "a7" : document.getElementById("console").innerHTML = "bumping!"; break;
+            case "a8" : document.getElementById("console").innerHTML = "coming!"; break;
+            case "a9" : document.getElementById("console").innerHTML = "status!"; break;
+            case "a10" : document.getElementById("console").innerHTML = "sleeping!"; break;
+            case "a11" : document.getElementById("console").innerHTML = "stopping!"; break;
+              
+            case "d1" : document.getElementById("console").innerHTML = "up!"; break;
+            case "d2" : document.getElementById("console").innerHTML = "right!"; break;
+            case "d3" : document.getElementById("console").innerHTML = "down!"; break;
+            case "d4" : document.getElementById("console").innerHTML = "left!"; break;
+          }
+          //alert("Button: " +btn);
+      }
+        
     if (annyang) {
       // Let's define our first command. First the text we expect, and then the function it should call
       var commands = {
         'goddard *msg': function(msg) {
-          socket.emit('new voice data', msg)
+          socket.emit('voice data', msg);
           alert("Goddard " +msg);
         }
       };
@@ -41,32 +80,67 @@
     </script>
 </head>
 <body>
-<div class="container">
+<!--Nav Bar-->
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <center><h4><span id="console">Say a command or tap the controls below!</span</h4></center>
+    </div>
+  </div>
+</nav>
 
+<!--Container-->    
+<div class="container-fluid">
+    <center><h5>
+        <!--Action Buttons-->
+        <div class="row">
+            <div class="col-xs-3" onclick="btnPress('a0');"><span class="btnText">help</span></div>
+            <div class="col-xs-3" onclick="btnPress('a1');"><span class="btnText">bark</span></div>
+            <div class="col-xs-3" onclick="btnPress('a2');"><span class="btnText">growl</span></div>
+            <div class="col-xs-3" onclick="btnPress('a3');"><span class="btnText">roam</span></div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3" onclick="btnPress('a4');"><span class="btnText">wag</span></div>
+            <div class="col-xs-3" onclick="btnPress('a5');"><span class="btnText">dance</span></div>
+            <div class="col-xs-3" onclick="btnPress('a6');"><span class="btnText">dj</span></div>
+            <div class="col-xs-3" onclick="btnPress('a7');"><span class="btnText">bump</span></div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3" onclick="btnPress('a8');"><span class="btnText">come</span></div>
+            <div class="col-xs-3" onclick="btnPress('a9');"><span class="btnText">status</span></div>
+            <div class="col-xs-3" onclick="btnPress('a10');"><span class="btnText">sleep</span></div>
+            <div class="col-xs-3" onclick="btnPress('a11');"><span class="btnText">stop</span></div>
+        </div>
+
+        <br/>
+
+        <!--Directional Buttons-->
+        <div class="row">
+            <div class="col-xs-2 col-xs-offset-5" onclick="btnPress('d1');"><span class="btnText">up</span></div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3 col-xs-offset-3" onclick="btnPress('d4');"><span class="btnText">left</span></div>
+            <div class="col-xs-3" onclick="btnPress('d2');"><span class="btnText">right</span></div>
+        </div>
+        <div class="row">
+            <div class="col-xs-2 col-xs-offset-5" onclick="btnPress('d3');"><span class="btnText">down</span></div>
+        </div>
+    </h5></center>
     
+    <!--
     <center>
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREKM54ho1eLic4PZkR9_HyYtUtbBw1HGI_y55j6_WeZY01p4T9Rg"/>
             <h1>Listening for commands!</h1>
     </center>
-
-    <!--
-    <div class="row">
-        <div class="col-xs-6">
-            <center>
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREKM54ho1eLic4PZkR9_HyYtUtbBw1HGI_y55j6_WeZY01p4T9Rg"/>
-            <h1>Speak now!</h1>
-            </center>
-        </div>
-        
-        <div class="col-xs-6">
-            <center>
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREKM54ho1eLic4PZkR9_HyYtUtbBw1HGI_y55j6_WeZY01p4T9Rg"/>
-            <h1>Speak now!</h1>
-            </center>
-        </div>
-    </div>
     -->
 
+</div>
+<!--Footer-->
+<div id="footer">
+    <div class="container">
+        <center><h4><a href="https://twitter.com/unhgoddard">@unhgoddard</a></h4></center>
+    </div>
 </div>
 </body>
 </html>
