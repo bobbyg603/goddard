@@ -33,11 +33,11 @@ exports.parse = function parse(cmd) {
     if(action === "help"   || action === "Help")        help.list();
     else if(action === "say"    || action === "Say")    speak.say(argument);
     else if(action === "play"   || action === "Play")   play.lookup(argument);
-    else if(action === "bump"   || action === "Bump")   play.lookup("HipHop.mp3");
+    else if(action === "bump"   || action === "Bump")   play.lookup("/bump/HipHop.mp3");
     else if(action === "fetch"  || action === "Fetch")	console.log("Fetch!");
     else if(action === "sleep"  || action === "Sleep")	play.lookup("sleep.mp3");
     else if(action === "come"   || action === "Come")   console.log("Come!");
-    else if(action === "dance"  || action === "Dance")	play.lookup("dance.mp3");
+    else if(action === "dance"  || action === "Dance")	play.lookup("/dj/dance.mp3");
     else if(action === "what"   || action === "What")   wolfram.ask(question);
     else if(action === "who"    || action === "Who")    wolfram.ask(question);
     else if(action === "when"   || action === "When")   wolfram.ask(question);
