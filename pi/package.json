@@ -27,8 +27,9 @@
     "bcrypt-nodejs" : "latest",
     "socket.io" : "~0.9.16",
     "wolfram" : "~0.2.7",
-    "twit" : "~1.1.12"
-  },
+    "twit" : "~1.1.12",
+    "serialport" : "latest"
+ },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/bobbyg603/goddard/issues"
