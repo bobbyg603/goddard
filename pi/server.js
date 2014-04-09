@@ -22,12 +22,13 @@ var serialPort = new SerialPort("/dev/ttyACM0", {
 var serialDataOut = '9';
 
 serialPort.on("open", function () {
-  console.log('open');
+  console.log('serialport open');
 });
 
 //bobby's code library
 var qparse = require('./app/lib/qparse.js');
 console.log("finished requires");
+
 
 // configuration ===============================================================
 mongoose.connect(configDB.url); // connect to our database
