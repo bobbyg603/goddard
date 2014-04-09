@@ -67,3 +67,30 @@ exports.parse = function parse(cmd) {
     else if(action === "translate" || action === "Translate") ;
     else speak.say("Sorry, I don't understand your command");
 };
+
+exports.ReturnSerialCode = function ReturnSerialCode(btnCode) {
+    switch(btnCode){
+        //Events that require a serialPort.write();
+        case "come" : return "0";
+        case "fetch": return "1";
+        case "move1": return "2";
+        case "move2": return "2";
+        case "sleep": return "3";
+        case "wake" : return "4";
+        case "roam" : return "5";
+        case "stop" : return "6";
+        case "status": return "7";
+        case "scold": return "8";
+        case "wag"  : return "9";
+        case "dance": return "10";
+        case "bump" : return "11";
+        
+        //Events that don't require a serialPort.write();
+        //case "stop audio" : return null;
+        case "dj"   : return null;
+        case "help" : return null;
+        case "bark" : return null;
+        case "growl": return null;
+        default: return null;
+    }  
+};

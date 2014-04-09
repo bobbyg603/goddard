@@ -1,13 +1,12 @@
 // server.js
 
 // set up ======================================================================
-// get all the tools we need
+// include all the tools we need
 var express  = require('express');
 var app = express();
 var server = require('http').createServer(app);
 var io = require('socket.io').listen(server);
-
-var port     = process.env.PORT || 8080;
+var port     = process.env.PORT || 8888;
 var mongoose = require('mongoose');
 var passport = require('passport');
 var flash 	 = require('connect-flash');
@@ -19,16 +18,15 @@ var SerialPort = require("serialport").SerialPort;
 var serialPort = new SerialPort("/dev/ttyACM0", {
   baudrate: 9600
 });
+
 var serialDataOut = '9';
 
 serialPort.on("open", function () {
   console.log('serialport open');
 });
 
-//bobby's code library
+//bobby's custom code library
 var qparse = require('./app/lib/qparse.js');
-console.log("finished requires");
-
 
 // configuration ===============================================================
 mongoose.connect(configDB.url); // connect to our database
@@ -71,18 +69,29 @@ console.log('The magic happens on port ' + port);
 // socket.io ===================================================================
 io.sockets.on('connection', function (socket) {
   socket.emit('news', "hello from the server!");
-  socket.on('voice data', function (data) {
+  socket.on('voice data', function(data) {
     console.log(">> " + data);
+    
+    // determine what the Pi should do based on the voice data
     qparse.parse(data);
   });
   socket.on('button data', function(btn) {
     console.log(">> " +btn);
+    
+    // determine what the Pi should do based on the btn press
     qparse.parse(btn);
-    serialPort.write(new Buffer(serialDataOut,'ascii'), function(err, results) {
-        console.log('sent '+ serialDataOut);
-        console.log('err ' + err);
-        console.log('results ' + results);
-    });
+    
+    // determine what code needs to be sent to the arduino
+    serialDataOut = qparse.ReturnSerialCode(btn);
+    
+    // write to the arduino if there is data to write
+    if(serialDataOut !== null)  {  
+        serialPort.write(new Buffer(serialDataOut,'ascii'), function(err, results) {
+            console.log('sent '+ serialDataOut);
+            console.log('err ' + err);
+            console.log('results ' + results);
+        });
+    }
   });
   socket.on('status', function(status) {
     console.log(">> " + status);
