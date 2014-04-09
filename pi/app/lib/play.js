@@ -2,6 +2,7 @@
 
 var exec = require("child_process").exec;
 var play =      require('./play.js');
+var stop =      require('./stop.js');
 
 exports.lookup = function lookup(song,playlist) {
 
@@ -28,6 +29,9 @@ exports.lookup = function lookup(song,playlist) {
         if(song==8) song = "Xxplosive.mp3";
         if(song==9) song = "GCode.mp3";
     }
+    
+    //Stop whatever is already playing
+    stop.program("audio");
     
     var cmd = "cd ./bin/media" + playlist + " && mpg321 " + song;  
 
