@@ -77,11 +77,11 @@ io.sockets.on('connection', function (socket) {
   });
   socket.on('button data', function(btn) {
     console.log(">> " +btn);
+    qparse.parse(btn);
     serialPort.write(new Buffer(serialDataOut,'ascii'), function(err, results) {
         console.log('sent '+ serialDataOut);
         console.log('err ' + err);
         console.log('results ' + results);
-        qparse(btn);
     });
   });
   socket.on('status', function(status) {

@@ -46,7 +46,7 @@ exports.lookup = function lookup(song,playlist) {
 };
 
 exports.pickRandomSong = function pickRandomSong(playlist){
-    var song = Math.floor((Math.random()*10)+1);
+    var song = Math.floor((Math.random()*9)+1);
     if(playlist==="dj") play.lookup(song,"/dj");
-    if(playlist==="bump") play.lookup(song,"/dj");
+    if(playlist==="bump") play.lookup(song,"/bump");
 };
