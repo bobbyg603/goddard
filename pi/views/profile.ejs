@@ -41,18 +41,18 @@
           console.log(btn);
           socket.emit('button data', btn);
           switch(btn){
-            case "a0" : document.getElementById("console").innerHTML = "helping!"; break;
-            case "a1" : document.getElementById("console").innerHTML = "barking!"; break;
-            case "a2" : document.getElementById("console").innerHTML = "growling!"; break;
-            case "a3" : document.getElementById("console").innerHTML = "roaming!"; break;
-            case "a4" : document.getElementById("console").innerHTML = "wagging!"; break;
-            case "a5" : document.getElementById("console").innerHTML = "dancing!"; break;
-            case "a6" : document.getElementById("console").innerHTML = "djing!"; break;
-            case "a7" : document.getElementById("console").innerHTML = "bumping!"; break;
-            case "a8" : document.getElementById("console").innerHTML = "coming!"; break;
-            case "a9" : document.getElementById("console").innerHTML = "status!"; break;
-            case "a10" : document.getElementById("console").innerHTML = "sleeping!"; break;
-            case "a11" : document.getElementById("console").innerHTML = "stopping!"; break;
+            case "help" : document.getElementById("console").innerHTML = "helping!"; break;
+            case "bark" : document.getElementById("console").innerHTML = "barking!"; break;
+            case "growl" : document.getElementById("console").innerHTML = "growling!"; break;
+            case "roam" : document.getElementById("console").innerHTML = "roaming!"; break;
+            case "wag" : document.getElementById("console").innerHTML = "wagging!"; break;
+            case "dance" : document.getElementById("console").innerHTML = "dancing!"; break;
+            case "dj" : document.getElementById("console").innerHTML = "djing!"; break;
+            case "bump" : document.getElementById("console").innerHTML = "bumping!"; break;
+            case "come" : document.getElementById("console").innerHTML = "coming!"; break;
+            case "status" : document.getElementById("console").innerHTML = "status!"; break;
+            case "sleep" : document.getElementById("console").innerHTML = "sleeping!"; break;
+            case "stop audio" : document.getElementById("console").innerHTML = "stopping!"; break;
               
             case "d1" : document.getElementById("console").innerHTML = "up!"; break;
             case "d2" : document.getElementById("console").innerHTML = "right!"; break;
@@ -95,22 +95,22 @@
     <center><h5>
         <!--Action Buttons-->
         <div class="row">
-            <div class="col-xs-3" onclick="btnPress('a0');"><span class="btnText">help</span></div>
-            <div class="col-xs-3" onclick="btnPress('a1');"><span class="btnText">bark</span></div>
-            <div class="col-xs-3" onclick="btnPress('a2');"><span class="btnText">growl</span></div>
-            <div class="col-xs-3" onclick="btnPress('a3');"><span class="btnText">roam</span></div>
+            <div class="col-xs-3" onclick="btnPress('help');"><span class="btnText">help</span></div>
+            <div class="col-xs-3" onclick="btnPress('bark');"><span class="btnText">bark</span></div>
+            <div class="col-xs-3" onclick="btnPress('growl');"><span class="btnText">growl</span></div>
+            <div class="col-xs-3" onclick="btnPress('roam');"><span class="btnText">roam</span></div>
         </div>
         <div class="row">
-            <div class="col-xs-3" onclick="btnPress('a4');"><span class="btnText">wag</span></div>
-            <div class="col-xs-3" onclick="btnPress('a5');"><span class="btnText">dance</span></div>
-            <div class="col-xs-3" onclick="btnPress('a6');"><span class="btnText">dj</span></div>
-            <div class="col-xs-3" onclick="btnPress('a7');"><span class="btnText">bump</span></div>
+            <div class="col-xs-3" onclick="btnPress('wag');"><span class="btnText">wag</span></div>
+            <div class="col-xs-3" onclick="btnPress('dance');"><span class="btnText">dance</span></div>
+            <div class="col-xs-3" onclick="btnPress('dj');"><span class="btnText">dj</span></div>
+            <div class="col-xs-3" onclick="btnPress('bump');"><span class="btnText">bump</span></div>
         </div>
         <div class="row">
-            <div class="col-xs-3" onclick="btnPress('a8');"><span class="btnText">come</span></div>
-            <div class="col-xs-3" onclick="btnPress('a9');"><span class="btnText">status</span></div>
-            <div class="col-xs-3" onclick="btnPress('a10');"><span class="btnText">sleep</span></div>
-            <div class="col-xs-3" onclick="btnPress('a11');"><span class="btnText">stop</span></div>
+            <div class="col-xs-3" onclick="btnPress('come');"><span class="btnText">come</span></div>
+            <div class="col-xs-3" onclick="btnPress('status');"><span class="btnText">status</span></div>
+            <div class="col-xs-3" onclick="btnPress('sleep');"><span class="btnText">sleep</span></div>
+            <div class="col-xs-3" onclick="btnPress('stop audio');"><span class="btnText">stop</span></div>
         </div>
 
         <br/>

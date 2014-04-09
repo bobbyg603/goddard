@@ -81,6 +81,7 @@ io.sockets.on('connection', function (socket) {
         console.log('sent '+ serialDataOut);
         console.log('err ' + err);
         console.log('results ' + results);
+        qparse(btn);
     });
   });
   socket.on('status', function(status) {
