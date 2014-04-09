@@ -10,7 +10,7 @@ exports.lookup = function lookup(song,playlist) {
     if (playlist==="/dj") {
         if(song==1) song = "Animals.mp3";
         if(song==2) song = "Badinga.mp3";
-        if(song==3) song = "BigPappa.mp3";
+        if(song==3) song = "dance.mp3";
         if(song==4) song = "InDaClub.mp3";
         if(song==5) song = "PursuitOfHappiness.mp3";
         if(song==6) song = "Selfie.mp3";
