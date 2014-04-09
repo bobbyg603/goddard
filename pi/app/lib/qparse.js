@@ -32,12 +32,13 @@ exports.parse = function parse(cmd) {
     //These are all of the actions Goddard understands
     if(action === "help"   || action === "Help")        help.list();
     else if(action === "say"    || action === "Say")    speak.say(argument);
-    else if(action === "play"   || action === "Play")   play.lookup(argument);
+    else if(action === "play"   || action === "Play")   play.lookup(argument,"");
     else if(action === "bump"   || action === "Bump")   play.pickRandomSong("bump");
     else if(action === "fetch"  || action === "Fetch")	console.log("Fetch!");
     else if(action === "sleep"  || action === "Sleep")	play.lookup("sleep.mp3","");
     else if(action === "come"   || action === "Come")   console.log("Come!");
-    else if(action === "dance"  || action === "Dance")	play.pickRandomSong("dj");
+    else if(action === "dance"  || action === "Dance")	play.lookup("dance.mp3","dj");
+    else if(action === "dj"     || action === "DJ" )    play.pickRandomSong("dj")
     else if(action === "what"   || action === "What")   wolfram.ask(question);
     else if(action === "who"    || action === "Who")    wolfram.ask(question);
     else if(action === "when"   || action === "When")   wolfram.ask(question);
