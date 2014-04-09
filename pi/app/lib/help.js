@@ -35,6 +35,7 @@ exports.list = function show(){
     actions.push("roam");
     actions.push("wake");
     actions.push("scold");
+    actions.push("dj");
     
     actions.sort();
     
