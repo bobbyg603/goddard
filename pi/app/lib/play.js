@@ -1,6 +1,7 @@
 //Takes the user's arguement looks for a matching song, then plays it
 
 var exec = require("child_process").exec;
+var play =      require('./play.js');
 
 exports.lookup = function lookup(song,playlist) {
 
@@ -42,6 +43,6 @@ exports.lookup = function lookup(song,playlist) {
 
 exports.pickRandomSong = function pickRandomSong(playlist){
     var song = Math.floor((Math.random()*10)+1);
-    if(playlist==="dj") lookup(song,"/dj");
-    if(playlist==="bump") lookup(song,"/dj");
+    if(playlist==="dj") play.lookup(song,"/dj");
+    if(playlist==="bump") play.lookup(song,"/dj");
 };
