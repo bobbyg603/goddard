@@ -1,6 +1,8 @@
-goddard
+Goddard
 =======
 
-Arduino code for The Goddard Project
+Arduino Uno code
+----------------
 
-test edit
+========================
+@unhgoddard | @bobbyg603 | (c) 2014
