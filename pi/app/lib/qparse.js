@@ -73,8 +73,8 @@ exports.ReturnSerialCode = function ReturnSerialCode(btnCode) {
         //Events that require a serialPort.write();
         case "come" : return "0";
         case "fetch": return "1";
-        case "move1": return "2";
-        case "move2": return "2";
+        //case "move1": return "2";
+        //case "move2": return "2";
         case "sleep": return "3";
         case "wake" : return "4";
         case "roam" : return "5";
