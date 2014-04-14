@@ -6,72 +6,6 @@
 	<link rel="stylesheet" href="/public/bootstrap3.0.3/css/bootstrap.min.css">
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-	<style>
-		body 		        { padding-top:0px; word-wrap:break-word;background-color:#EEE; background-image:url("/public/metal.jpg");}
-		.col-xs-2           { height:75px; line-height:75px; background-color:#FFD700; background-size:100%; color:black; border:1px solid white;}
-		.col-xs-2:active    { background-color:green; color:black; }
-		.col-xs-3           { height:75px; line-height:75px; background-color:#FFD700; background-size:100%; color:black; border:1px solid white;}
-		.col-xs-3:active    { background-color:green; color:black; }
-	    .btnText            {
-    	                        -webkit-touch-callout: none;
-                                -webkit-user-select: none;
-                                -khtml-user-select: none;
-                                -moz-user-select: none;
-                                -ms-user-select: none;
-                                user-select: none;
-    	                    }
-    	.rotate45 {
-                                -webkit-transform: rotate(45deg);
-                                -moz-transform: rotate(45deg);
-                                -o-transform: rotate(45deg);
-                                -ms-transform: rotate(45deg);
-                                transform: rotate(45deg);
-                            }
-    	.rotate90 {
-                                -webkit-transform: rotate(90deg);
-                                -moz-transform: rotate(90deg);
-                                -o-transform: rotate(90deg);
-                                -ms-transform: rotate(90deg);
-                                transform: rotate(90deg);
-                            }
-                            
-        .rotate135 {
-                                -webkit-transform: rotate(135deg);
-                                -moz-transform: rotate(135deg);
-                                -o-transform: rotate(135deg);
-                                -ms-transform: rotate(135deg);
-                                transform: rotate(135deg);
-                            }
-        .rotate180 {
-                                -webkit-transform: rotate(180deg);
-                                -moz-transform: rotate(180deg);
-                                -o-transform: rotate(180deg);
-                                -ms-transform: rotate(180deg);
-                                transform: rotate(180deg);
-                            }
-        .rotate225 {
-                                -webkit-transform: rotate(225deg);
-                                -moz-transform: rotate(225deg);
-                                -o-transform: rotate(225deg);
-                                -ms-transform: rotate(225deg);
-                                transform: rotate(225deg);
-                            }
-        .rotate270 {
-                                -webkit-transform: rotate(270deg);
-                                -moz-transform: rotate(270deg);
-                                -o-transform: rotate(270deg);
-                                -ms-transform: rotate(270deg);
-                                transform: rotate(270deg);
-                            }
-        .rotate315 {
-                                -webkit-transform: rotate(315deg);
-                                -moz-transform: rotate(315deg);
-                                -o-transform: rotate(315deg);
-                                -ms-transform: rotate(315deg);
-                                transform: rotate(315deg);
-                            }
-                            
-	</style>
 	 
 	<!--Socket.io-->
     <script src="/socket.io/socket.io.js"></script>
@@ -129,6 +63,42 @@
       annyang.start();
     }
     </script>
+    <style>
+		body 		        { 
+		                        -webkit-touch-callout:none;
+                                -webkit-user-select:none;
+                                -khtml-user-select:none;
+                                -moz-user-select:none;
+                                -ms-user-select:none;
+                                user-select:none;
+                                -webkit-tap-highlight-color:rgba(0,0,0,0);
+		                        padding-top:0px; 
+		                        background-color:#EEE;
+		                        background-image:url("/public/metal.jpg");
+		                        text-align:center;
+		                    }
+		.col-xs-4           { padding-left:0px;height:75px; line-height:75px; background-color:#FFD700; background-size:100%; color:black; border:1px solid gray;}
+		.col-xs-4:active    { padding-left:0px;background-color:green; color:black; }
+		.col-xs-3           { padding-left:1%;height:75px; line-height:75px; background-color:#FFD700; background-size:100%; color:black; border:1px solid gray;}
+		.col-xs-3:active    { padding-left:1%;background-color:green; color:black; }
+	    .btnText            {
+    	                        -webkit-touch-callout: none;
+                                -webkit-user-select: none;
+                                -khtml-user-select: none;
+                                -moz-user-select: none;
+                                -ms-user-select: none;
+                                 user-select: none;
+                                 
+    	                    }
+    	#upleft { background-image:url('/public/dir/upleft.png'); background-size:50%; background-repeat:no-repeat;background-attachment:fixed;background-position:center; }
+    	#up { background-image:url('/public/dir/up.png'); background-size:50%; background-repeat:no-repeat;background-attachment:fixed;background-position:center; }
+    	#upright { background-image:url('/public/dir/upright.png'); background-size:50%; background-repeat:no-repeat;background-attachment:fixed;background-position:center; }
+        #left { background-image:url('/public/dir/left.png');background-size:50%; background-repeat:no-repeat;background-attachment:fixed;background-position:center; }
+        #right { background-image:url('/public/dir/right.png');background-size:50%; background-repeat:no-repeat;background-attachment:fixed;background-position:center; }
+        #downleft{ background-image:url('/public/dir/downleft.png');background-size:50%; background-repeat:no-repeat;background-attachment:fixed;background-position:center; }
+        #down { background-image:url('/public/dir/down.png');background-size:50%; background-repeat:no-repeat;background-attachment:fixed;background-position:center; }
+        #downright { background-image:url('/public/dir/downright.png');background-size:50%; background-repeat:no-repeat;background-attachment:fixed;background-position:center; }
+	</style>
 </head>
 <body>
 <!--Nav Bar-->
@@ -143,46 +113,46 @@
 
 <!--Container-->    
 <div class="container-fluid">
-    <center><h5>
+    <center><h2><b>
         <!--Action Buttons-->
         <div class="row">
             <div class="col-xs-3" onclick="btnPress('help');"><span class="btnText">help</span></div>
-            <div class="col-xs-3" onclick="btnPress('bark');"><span class="btnText">bark</span></div>
-            <div class="col-xs-3" onclick="btnPress('growl');"><span class="btnText">growl</span></div>
-            <div class="col-xs-3" onclick="btnPress('roam');"><span class="btnText">roam</span></div>
+            <div class="col-xs-3" onclick="btnPress('status');"><span class="btnText">status</span></div>
+            <div class="col-xs-3" onclick="btnPress('sleep');"><span class="btnText">sleep</span></div>
+            <div class="col-xs-3" onclick="btnPress('stop');"><span class="btnText">stop</span></div>
         </div>
         <div class="row">
-            <div class="col-xs-3" onclick="btnPress('wag');"><span class="btnText">wag</span></div>
+            <div class="col-xs-3" onclick="btnPress('come');"><span class="btnText">&nbsp;come</span></div>
             <div class="col-xs-3" onclick="btnPress('dance');"><span class="btnText">dance</span></div>
             <div class="col-xs-3" onclick="btnPress('dj');"><span class="btnText">dj</span></div>
             <div class="col-xs-3" onclick="btnPress('bump');"><span class="btnText">bump</span></div>
         </div>
         <div class="row">
-            <div class="col-xs-3" onclick="btnPress('come');"><span class="btnText">come</span></div>
-            <div class="col-xs-3" onclick="btnPress('status');"><span class="btnText">status</span></div>
-            <div class="col-xs-3" onclick="btnPress('sleep');"><span class="btnText">sleep</span></div>
-            <div class="col-xs-3" onclick="btnPress('stop audio');"><span class="btnText">stop</span></div>
+            <div class="col-xs-3" onclick="btnPress('wag');"><span class="btnText">wag</span></div>
+            <div class="col-xs-3" onclick="btnPress('bark');"><span class="btnText">bark</span></div>
+            <div class="col-xs-3" onclick="btnPress('growl');"><span class="btnText">growl</span></div>
+            <div class="col-xs-3" onclick="btnPress('roam');"><span class="btnText">roam</span></div>
         </div>
-
+        
         <br/>
 
         <!--Directional Buttons-->
         <div class="row">
-            <div class="col-xs-2 col-xs-offset-3" onclick="btnPress('d1');"><span class="btnText"><img class="rotate315" src="/public/arrow.png"/></span></div>
-            <div class="col-xs-2" onclick="btnPress('d2');"><span class="btnText"><img src="/public/arrow.png"/></span></div>
-            <div class="col-xs-2" onclick="btnPress('d3');"><span class="btnText"><img class="rotate45" src="/public/arrow.png"/></span></div>
+            <div id="upleft" class="col-xs-4" onclick="btnPress('upleft');"></div>
+            <div id="up" class="col-xs-4" onclick="btnPress('up');"></div>
+            <div id="upright" class="col-xs-4" onclick="btnPress('upright');"></div>
         </div>
         <div class="row">
-            <div class="col-xs-2 col-xs-offset-3" onclick="btnPress('d4');"><span class="btnText"><img class="rotate270" src="/public/arrow.png"/></span></div>
-            <div class="col-xs-2" onclick="btnPress('d5');"><span class="btnText">0</span></div>
-            <div class="col-xs-2" onclick="btnPress('d6');"><span class="btnText"><img class="rotate90" src="/public/arrow.png"/></span></div>
+            <div id="left" class="col-xs-4" onclick="btnPress('left');"></div>
+            <div id="" class="col-xs-4"></div>
+            <div id="right" class="col-xs-4" onclick="btnPress('right');"></div>
         </div>
         <div class="row">
-            <div class="col-xs-2 col-xs-offset-3" onclick="btnPress('d7');"><span class="btnText"><img class="rotate225" src="/public/arrow.png"/></span></div>
-            <div class="col-xs-2" onclick="btnPress('d8');"><span class="btnText"><img class="rotate180" src="/public/arrow.png"/></span></div>
-            <div class="col-xs-2" onclick="btnPress('d9');"><span class="btnText"><img class="rotate135" src="/public/arrow.png"/></span></div>
+            <div id="downleft" class="col-xs-4" onclick="btnPress('downleft');"></div>
+            <div id="down" class="col-xs-4" onclick="btnPress('down');"></div>
+            <div id="downright" class="col-xs-4" onclick="btnPress('downright');"></div>
         </div>
-    </h5></center>
+    </b></h2></center>
     
     <!--
     <center>
@@ -194,7 +164,7 @@
     <!--Footer-->
     <div id="footer">
     	<div class="container">
-        <center><h4><a href="https://twitter.com/unhgoddard">@unhgoddard</a></h4></center>
+        <center><h3><b><a href="https://twitter.com/unhgoddard">@unhgoddard</a></b></h3></center>
     </div>
 
 </div>
@@ -202,4 +172,3 @@
 
 </body>
 </html>
-
