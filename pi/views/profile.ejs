@@ -3,15 +3,15 @@
 <html>
 <head>
 	<title>UNH Goddard | Cmd</title>
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/public/bootstrap3.0.3/css/bootstrap.min.css">
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<style>
-		body 		        { padding-top:0px; word-wrap:break-word;}
-		.col-xs-2           { height:75px; line-height:75px; background-color:white; color:black; border:1px solid black;}
-		.col-xs-2:active    { background-color:black; color:white; }
-		.col-xs-3           { height:75px; line-height:75px; background-color:white; color:black; border:1px solid black;}
-		.col-xs-3:active    { background-color:black; color:white; }
+		body 		        { padding-top:0px; word-wrap:break-word;background-color:#EEE; background-image:url("/public/metal.jpg");}
+		.col-xs-2           { height:75px; line-height:75px; background-color:#FFD700; background-size:100%; color:black; border:1px solid white;}
+		.col-xs-2:active    { background-color:green; color:black; }
+		.col-xs-3           { height:75px; line-height:75px; background-color:#FFD700; background-size:100%; color:black; border:1px solid white;}
+		.col-xs-3:active    { background-color:green; color:black; }
 	    .btnText            {
     	                        -webkit-touch-callout: none;
                                 -webkit-user-select: none;
@@ -20,6 +20,57 @@
                                 -ms-user-select: none;
                                 user-select: none;
     	                    }
+    	.rotate45 {
+                                -webkit-transform: rotate(45deg);
+                                -moz-transform: rotate(45deg);
+                                -o-transform: rotate(45deg);
+                                -ms-transform: rotate(45deg);
+                                transform: rotate(45deg);
+                            }
+    	.rotate90 {
+                                -webkit-transform: rotate(90deg);
+                                -moz-transform: rotate(90deg);
+                                -o-transform: rotate(90deg);
+                                -ms-transform: rotate(90deg);
+                                transform: rotate(90deg);
+                            }
+                            
+        .rotate135 {
+                                -webkit-transform: rotate(135deg);
+                                -moz-transform: rotate(135deg);
+                                -o-transform: rotate(135deg);
+                                -ms-transform: rotate(135deg);
+                                transform: rotate(135deg);
+                            }
+        .rotate180 {
+                                -webkit-transform: rotate(180deg);
+                                -moz-transform: rotate(180deg);
+                                -o-transform: rotate(180deg);
+                                -ms-transform: rotate(180deg);
+                                transform: rotate(180deg);
+                            }
+        .rotate225 {
+                                -webkit-transform: rotate(225deg);
+                                -moz-transform: rotate(225deg);
+                                -o-transform: rotate(225deg);
+                                -ms-transform: rotate(225deg);
+                                transform: rotate(225deg);
+                            }
+        .rotate270 {
+                                -webkit-transform: rotate(270deg);
+                                -moz-transform: rotate(270deg);
+                                -o-transform: rotate(270deg);
+                                -ms-transform: rotate(270deg);
+                                transform: rotate(270deg);
+                            }
+        .rotate315 {
+                                -webkit-transform: rotate(315deg);
+                                -moz-transform: rotate(315deg);
+                                -o-transform: rotate(315deg);
+                                -ms-transform: rotate(315deg);
+                                transform: rotate(315deg);
+                            }
+                            
 	</style>
 	 
 	<!--Socket.io-->
@@ -117,14 +168,19 @@
 
         <!--Directional Buttons-->
         <div class="row">
-            <div class="col-xs-2 col-xs-offset-5" onclick="btnPress('d1');"><span class="btnText">up</span></div>
+            <div class="col-xs-2 col-xs-offset-3" onclick="btnPress('d1');"><span class="btnText"><img class="rotate315" src="/public/arrow.png"/></span></div>
+            <div class="col-xs-2" onclick="btnPress('d2');"><span class="btnText"><img src="/public/arrow.png"/></span></div>
+            <div class="col-xs-2" onclick="btnPress('d3');"><span class="btnText"><img class="rotate45" src="/public/arrow.png"/></span></div>
         </div>
         <div class="row">
-            <div class="col-xs-3 col-xs-offset-3" onclick="btnPress('d4');"><span class="btnText">left</span></div>
-            <div class="col-xs-3" onclick="btnPress('d2');"><span class="btnText">right</span></div>
+            <div class="col-xs-2 col-xs-offset-3" onclick="btnPress('d4');"><span class="btnText"><img class="rotate270" src="/public/arrow.png"/></span></div>
+            <div class="col-xs-2" onclick="btnPress('d5');"><span class="btnText">0</span></div>
+            <div class="col-xs-2" onclick="btnPress('d6');"><span class="btnText"><img class="rotate90" src="/public/arrow.png"/></span></div>
         </div>
         <div class="row">
-            <div class="col-xs-2 col-xs-offset-5" onclick="btnPress('d3');"><span class="btnText">down</span></div>
+            <div class="col-xs-2 col-xs-offset-3" onclick="btnPress('d7');"><span class="btnText"><img class="rotate225" src="/public/arrow.png"/></span></div>
+            <div class="col-xs-2" onclick="btnPress('d8');"><span class="btnText"><img class="rotate180" src="/public/arrow.png"/></span></div>
+            <div class="col-xs-2" onclick="btnPress('d9');"><span class="btnText"><img class="rotate135" src="/public/arrow.png"/></span></div>
         </div>
     </h5></center>
     
@@ -135,12 +191,15 @@
     </center>
     -->
 
-</div>
-<!--Footer-->
-<div id="footer">
-    <div class="container">
+    <!--Footer-->
+    <div id="footer">
+    	<div class="container">
         <center><h4><a href="https://twitter.com/unhgoddard">@unhgoddard</a></h4></center>
     </div>
+
 </div>
+</div>
+
 </body>
 </html>
+
