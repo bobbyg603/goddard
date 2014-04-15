@@ -7,7 +7,7 @@ exports.say = function speak(words) {
 
     //Espeak Fix - writes to text file, reads from text, deletes file
     var create = "touch stt.txt && echo '" + words + "' >> stt.txt";
-    var del = "rm stt.txt";
+    var del = function(){exec("rm stt.txt",function(err,stdo,stde){console.log(del);});};
 
     //Tell the console goddard is speaking
     console.log("\nespeaking...");
@@ -21,7 +21,7 @@ exports.say = function speak(words) {
         if(error !== null) {
             console.log('exec error' + error);
         }
-	//Delete the leftover stt.txt file after speak is done
-        exec(del,function(err,stdo,stde){console.log(del);});
+	    //Delete the leftover stt.txt file after speak is done
+        setTimeout(del(),20000);
    });
 };
