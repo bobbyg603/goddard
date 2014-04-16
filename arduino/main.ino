@@ -79,7 +79,7 @@ void loop() {
     goddardStop();
 
     if(inChar == '0'){
-      wag(); //changed by bobby
+      goodBoy();
       inChar='0';
     }
   
@@ -94,7 +94,7 @@ void loop() {
     }
   
     if(inChar == '3'){
-      roam() //changed by bobby
+    treat();
     inChar='0';
     }
   

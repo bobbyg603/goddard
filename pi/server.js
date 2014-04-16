@@ -73,25 +73,18 @@ io.sockets.on('connection', function (socket) {
     console.log(">> " + data);
     
     // determine what the Pi should do based on the voice data
-    var serialDataOut = qparse.parse(data);
-    
-    // if qparse returns a number, that means the arduino has something to do!
-    if(serialDataOut !== null)  {  
-        serialPort.write(new Buffer(serialDataOut,'ascii'), function(err, results) {
-            console.log('sent '+ serialDataOut);
-            console.log('err ' + err);
-            console.log('results ' + results);
-        });
-    }
-    
+    qparse.parse(data);
   });
   socket.on('button data', function(btn) {
     console.log(">> " +btn);
     
-    // determine what the Pi should do based on the voice data
-    var serialDataOut = qparse.parse(btn);
+    // determine what the Pi should do based on the btn press
+    qparse.parse(btn);
     
-    // if qparse returns a number, that means the arduino has something to do!
+    // determine what code needs to be sent to the arduino
+    serialDataOut = qparse.ReturnSerialCode(btn);
+    
+    // write to the arduino if there is data to write
     if(serialDataOut !== null)  {  
         serialPort.write(new Buffer(serialDataOut,'ascii'), function(err, results) {
             console.log('sent '+ serialDataOut);
