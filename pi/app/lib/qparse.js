@@ -93,6 +93,7 @@ exports.ReturnSerialCode = function ReturnSerialCode(action) {
         case "stop" : return "1";
         case "come" : return "2";
         case "here boy": return "2"; // fixes bug - annyang registers come as c** - yikes
+        case "here" : return "2"; // fixes bug - annyang registers come as c** - yikes
         case "dance": return "3";
         case "dj"   : return "4";
         case "DJ"   : return "4"; // fixes bug caused by annyang
