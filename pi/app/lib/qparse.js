@@ -70,24 +70,31 @@ exports.parse = function parse(cmd) {
 
 exports.ReturnSerialCode = function ReturnSerialCode(btnCode) {
     switch(btnCode){
-        //Events that require a serialPort.write();
-        case "come" : return "0";
-        case "fetch": return "1";
-        //case "move1": return "2";
-        //case "move2": return "2";
-        case "sleep": return "3";
-        case "wake" : return "4";
-        case "roam" : return "5";
-        case "stop" : return "6";
-        case "status": return "7";
+
+        //Return a value to write to the arduino
+        case "status": return "0";
+        case "sleep": return null;
+        case "stop" : return "1";
+        case "come" : return "2";
+        case "dance": return "3";
+        case "dj"   : return "4";
+        case "bump" : return "4";
+        case "wag"  : return "5";
+        case "roam" : return "6";
+        case "sniff": return "7";
         case "scold": return "8";
-        case "wag"  : return "9";
-        case "dance": return "10";
-        case "bump" : return "11";
+        
+        case "NW": return "A";
+        case "N" : return "N";
+        case "NE": return "B";
+        case "E" : return "E";
+        case "W" : return "W";
+        case "SW": return "C";
+        case "S" : return "S";
+        case "SE": return "D";
         
         //Events that don't require a serialPort.write();
-        //case "stop audio" : return null;
-        case "dj"   : return null;
+        case "stop audio" : return null;
         case "help" : return null;
         case "bark" : return null;
         case "growl": return null;
