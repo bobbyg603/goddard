@@ -91,6 +91,7 @@ exports.ReturnSerialCode = function ReturnSerialCode(btnCode) {
         case "sleep": return null;
         case "stop" : return "1";
         case "come" : return "2";
+        case "here boy": return "2"; // fixes bug - annyang registers come as c** - yikes
         case "dance": return "3";
         case "dj"   : return "4";
         case "DJ"   : return "4"; // fixes bug caused by annyang
@@ -99,6 +100,7 @@ exports.ReturnSerialCode = function ReturnSerialCode(btnCode) {
         case "roam" : return "6";
         case "sniff": return "7";
         case "scold": return "8";
+        
         
         //Return a value to write to the arduino based on a direction press
         case "NW": return "A";
