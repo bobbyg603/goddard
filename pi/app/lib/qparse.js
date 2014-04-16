@@ -37,6 +37,7 @@ exports.parse = function parse(cmd) {
     else if(action === "stop"   || action === "Stop")   stop.program(argument);
     
     else if(action === "come"   || action === "Come")   console.log("Come!");
+    else if(action === "here"   || action === "Here")   console.log("Here!"); // workaround for annyange come bug
     else if(action === "dance"  || action === "Dance")	play.lookup("dance.mp3","/dj");
     else if(action === "dj"     || action === "DJ" )    play.pickRandomSong("dj");
     else if(action === "bump"   || action === "Bump")   play.pickRandomSong("bump");
@@ -83,8 +84,8 @@ exports.parse = function parse(cmd) {
     else speak.say("Sorry, I don't understand your command");
 };
 
-exports.ReturnSerialCode = function ReturnSerialCode(btnCode) {
-    switch(btnCode){
+exports.ReturnSerialCode = function ReturnSerialCode(action) {
+    switch(action){
 
         //Return a value to write to the arduino based on a button action
         case "status": return "0";
