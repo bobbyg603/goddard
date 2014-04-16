@@ -3,11 +3,10 @@ var exec = require("child_process").exec;
 
 exports.say = function speak(words) {
     //Determine what program will handle the text to speech 
-    var saywords = "echo'"+words+"' | festival --tts";
+    var saywords = "espeak '" +words+ "'";
 
     exec(saywords,function(error, stdout, stderr) {
-		//sys.print('stdout:' + stdout);
-        //sys.print('stderr:' + stderr);
+		console.log(stdout);
         if(error !== null) {
             console.log('exec error' + error);
         }
