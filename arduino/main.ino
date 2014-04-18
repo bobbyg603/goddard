@@ -126,6 +126,42 @@ void loop() {
       moveWest();
       inChar='0';
     }   
+    if(inChar == 'N')
+    {
+      moveNorth();
+    }
+    if(inChar == 'B')
+    {
+      moveNE();
+    }
+    if(inChar == 'E')
+    {
+      moveEast();
+    }
+    if(inChar == 'D')
+    {
+      moveSE();
+    }
+    if(inChar == 'S')
+    {
+      moveSouth();
+    }
+    if(inChar == 'C')
+    {
+      moveSW();
+    }
+    if(inChar == 'W')
+    {
+      moveWest();
+    }
+    if(inChar == 'A')
+    {
+      moveNW();
+    }
+    if(inChar == '1')
+    {
+      fullStop();
+    }
   }
   
   else {
@@ -378,6 +414,42 @@ void moveWest()
     digitalWrite(Motor_Right_Pin1,HIGH);
     digitalWrite(Motor_Right_Pin2,LOW);  
 }
+void moveNE()
+ {
+    analogWrite(Motor_Left_pwmPin,200);
+    analogWrite(Motor_Right_pwmPin,150);
+    digitalWrite(Motor_Left_Pin1,LOW);
+    digitalWrite(Motor_Left_Pin2,HIGH);
+    digitalWrite(Motor_Right_Pin1,HIGH);
+    digitalWrite(Motor_Right_Pin2,LOW);
+ }
+  void moveNW()
+ {
+    analogWrite(Motor_Left_pwmPin,150);
+    analogWrite(Motor_Right_pwmPin,200);
+    digitalWrite(Motor_Left_Pin1,LOW);
+    digitalWrite(Motor_Left_Pin2,HIGH);
+    digitalWrite(Motor_Right_Pin1,HIGH);
+    digitalWrite(Motor_Right_Pin2,LOW);
+ }
+ void moveSE()
+ {
+    analogWrite(Motor_Left_pwmPin,200);
+    analogWrite(Motor_Right_pwmPin,150);
+    digitalWrite(Motor_Left_Pin1,HIGH);
+    digitalWrite(Motor_Left_Pin2,LOW);
+    digitalWrite(Motor_Right_Pin1,LOW);
+    digitalWrite(Motor_Right_Pin2,HIGH);
+ }
+  void moveSW()
+ {
+    analogWrite(Motor_Left_pwmPin,150);
+    analogWrite(Motor_Right_pwmPin,200);
+    digitalWrite(Motor_Left_Pin1,HIGH);
+    digitalWrite(Motor_Left_Pin2,LOW);
+    digitalWrite(Motor_Right_Pin1,LOW);
+    digitalWrite(Motor_Right_Pin2,HIGH);
+ }
 void goddardStop()
 {
    analogWrite(Motor_Left_pwmPin,0);
