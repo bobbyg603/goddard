@@ -98,11 +98,6 @@ void loop() {
     inChar='0';
     }
   
-    if(inChar == '4'){
-      goddardStop();
-      inChar='0';
-    }
-    
     if(inChar == '5'){
       fetch();          //come
       inChar='0';
@@ -112,20 +107,6 @@ void loop() {
       inChar='0';
     }
 
-    if(inChar == '7'){
-      moveNorth();
-      inChar='0';
-    }
-    
-    if(inChar == '8'){
-      move East();      //or South
-      inChar='0';
-    }
-
-    if(inChar == '9'){
-      moveWest();
-      inChar='0';
-    }   
     if(inChar == 'N')
     {
       moveNorth();
