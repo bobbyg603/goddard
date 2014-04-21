@@ -90,7 +90,7 @@ exports.ReturnSerialCode = function ReturnSerialCode(action) {
 
         //Return a value to write to the arduino based on a button action
         case "status": return "0";
-        case "sleep": return null;
+        case "sleep": return "L";
         case "stop" : return "1";
         //case "come" : return "2";
         //case "here boy": return "2"; // fixes bug - annyang registers come as c** - yikes
@@ -103,7 +103,7 @@ exports.ReturnSerialCode = function ReturnSerialCode(action) {
         case "roam" : return "6";
         case "sniff": return "7";
         case "scold": return "8";
-        
+	case "wake" : return "9";        
         
         //Return a value to write to the arduino based on a direction press
         case "NW": return "A";
