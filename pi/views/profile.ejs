@@ -15,8 +15,10 @@
 	
     <script>
       //var socket = io.connect('https://v2-c9-bobbyg603.c9.io');
-      var socket = io.connect('raspberrypi.local:8888');
-      
+      //var socket = io.connect('raspberrypi.local:8888');
+      var socket = io.connect('132.177.206.210:8888');      
+      //var socket = io.connect('10.10.20.185:8888');
+
       socket.on('news', function (data) {
         console.log(data);
         socket.emit('status', "hello from the client!");
