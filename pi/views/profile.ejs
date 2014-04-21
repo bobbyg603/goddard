@@ -11,13 +11,13 @@
     <script src="/socket.io/socket.io.js"></script>
     
     <!--Annyang Voice Recognition-->
-	<script src="//cdnjs.cloudflare.com/ajax/libs/annyang/1.1.0/annyang.min.js"></script>
+	<script src="/public/annyang.min.js"></script>
 	
     <script>
       //var socket = io.connect('https://v2-c9-bobbyg603.c9.io');
       //var socket = io.connect('raspberrypi.local:8888');
-      var socket = io.connect('132.177.206.210:8888');      
-      //var socket = io.connect('10.10.20.185:8888');
+      //var socket = io.connect('132.177.206.210:8888');      
+      var socket = io.connect('10.10.20.114:8888');
 
       socket.on('news', function (data) {
         console.log(data);
@@ -40,7 +40,10 @@
             case "status" : document.getElementById("console").innerHTML = "status!"; break;
             case "sleep" : document.getElementById("console").innerHTML = "sleeping!"; break;
             case "stop audio" : document.getElementById("console").innerHTML = "stopping!"; break;
-              
+	    case "kill audio" : document.getElementById("console").innerHTML = "muted!"; break;            
+	    case "sniff" : document.getElementById("console").innerHTML = "sniffing!"; break;
+	    case "scold" : document.getElementById("console").innerHTML = "scolding!"; break; 
+
             case "d1" : document.getElementById("console").innerHTML = "up!"; break;
             case "d2" : document.getElementById("console").innerHTML = "right!"; break;
             case "d3" : document.getElementById("console").innerHTML = "down!"; break;
@@ -119,21 +122,21 @@
         <!--Action Buttons-->
         <div class="row">
             <div class="col-xs-3" onclick="btnPress('help');"><span class="btnText">help</span></div>
-            <div class="col-xs-3" onclick="btnPress('status');"><span class="btnText">status</span></div>
+            <div class="col-xs-3" onclick="btnPress('scold');"><span class="btnText">scold</span></div>
             <div class="col-xs-3" onclick="btnPress('sleep');"><span class="btnText">sleep</span></div>
-            <div class="col-xs-3" onclick="btnPress('stop');"><span class="btnText">stop</span></div>
+            <div class="col-xs-3" onclick="btnPress('kill audio');"><span class="btnText">mute</span></div>
         </div>
         <div class="row">
-            <div class="col-xs-3" onclick="btnPress('come');"><span class="btnText">&nbsp;come</span></div>
             <div class="col-xs-3" onclick="btnPress('dance');"><span class="btnText">dance</span></div>
             <div class="col-xs-3" onclick="btnPress('dj');"><span class="btnText">dj</span></div>
             <div class="col-xs-3" onclick="btnPress('bump');"><span class="btnText">bump</span></div>
+            <div class="col-xs-3" onclick="btnPress('roam');"><span class="btnText">&nbsp;roam</span></div>
         </div>
         <div class="row">
             <div class="col-xs-3" onclick="btnPress('wag');"><span class="btnText">wag</span></div>
             <div class="col-xs-3" onclick="btnPress('bark');"><span class="btnText">bark</span></div>
             <div class="col-xs-3" onclick="btnPress('growl');"><span class="btnText">growl</span></div>
-            <div class="col-xs-3" onclick="btnPress('roam');"><span class="btnText">roam</span></div>
+            <div class="col-xs-3" onclick="btnPress('sniff');"><span class="btnText">sniff</span></div>
         </div>
         
         <br/>
@@ -146,7 +149,7 @@
         </div>
         <div class="row">
             <div id="left" class="col-xs-4" onmousedown="btnPress('W');" onmouseup="btnPress('stop');"></div>
-            <div id="" class="col-xs-4"></div>
+            <div id="" class="col-xs-4" onclick="btnPress('stop')">Stop</div>
             <div id="right" class="col-xs-4" onmousedown="btnPress('E');" onmouseup="btnPress('stop');"></div>
         </div>
         <div class="row">
@@ -174,3 +177,4 @@
 
 </body>
 </html>
+

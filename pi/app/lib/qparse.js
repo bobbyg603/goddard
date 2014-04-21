@@ -32,12 +32,11 @@ exports.parse = function parse(cmd) {
     
     //These are all of the Primary actions Goddard understands
     if(action === "help"        || action === "Help")   help.list(); // Needs to be sent to client
-    else if(action === "status" || action === "Status") console.log("Status?");
+    else if(action === "scold"  || action === "Scold")  play.lookup("wimper.mp3","");
     else if(action === "sleep"  || action === "Sleep")	play.lookup("sleep.mp3","");
     else if(action === "stop"   || action === "Stop")   stop.program(argument);
     
-    else if(action === "come"   || action === "Come")   console.log("Come!");
-    else if(action === "here"   || action === "Here")   console.log("Here!"); // workaround for annyange come bug
+    else if(action === "roam"   || action === "Roam")   console.log("Roaming!");
     else if(action === "dance"  || action === "Dance")	play.lookup("dance.mp3","/dj");
     else if(action === "dj"     || action === "DJ" )    play.pickRandomSong("dj");
     else if(action === "bump"   || action === "Bump")   play.pickRandomSong("bump");
@@ -45,8 +44,8 @@ exports.parse = function parse(cmd) {
     else if(action === "wag"    || action === "Wag")    console.log("WagWag!");
     else if(action === "bark"   || action === "Bark")   play.lookup("bark.mp3","");
     else if(action === "growl"  || action === "Growl")  play.lookup("growl.mp3","");
-    else if(action === "roam"   || action === "Roam")   console.log("Roaming!");
-    
+    else if(action === "sniff"  || action === "Sniff") play.lookup("sniff.mp3","");
+   
     //Goddard uses WolframAlpha to answer questions
     else if(action === "who"    || action === "Who")    wolfram.ask(question);
     else if(action === "what"   || action === "What")   wolfram.ask(question);
@@ -73,11 +72,13 @@ exports.parse = function parse(cmd) {
     else if(action === "kiss"   || action === "Kiss")   play.lookup("kiss.mp3","");
     else if(action === "move"   || action === "Move")   console.log("Move!");
     else if(action === "go"     || action === "Go")     console.log("Go!"); //Do the same as move
-    else if(action === "scold"  || action === "Scold")  speak.say("I'm sorry!");
     else if(action === "make"   || action === "Make")   make.make(argument);
     else if(action === "wake"   || action === "Wake")   console.log("I'm awake!");
     
     //Old commands - used for debug
+    //else if(action === "here"   || action === "Here")   console.log("Here!"); // workaround for annyange come bug
+    //else if(action === "come"   || action === "Come")   console.log("Come!");
+    //else if(action === "status" || action === "Status") console.log("Status?");
     //else if(action === "get"    || action === "Get")    console.log(ls.files(argument));
     //else if(action === "ls"     || action === "Ls")     console.log(ls.files(argument));
     //else if(action === "list"   || action === "List")   console.log(ls.files(argument));
@@ -91,9 +92,9 @@ exports.ReturnSerialCode = function ReturnSerialCode(action) {
         case "status": return "0";
         case "sleep": return null;
         case "stop" : return "1";
-        case "come" : return "2";
-        case "here boy": return "2"; // fixes bug - annyang registers come as c** - yikes
-        case "here" : return "2"; // fixes bug - annyang registers come as c** - yikes
+        //case "come" : return "2";
+        //case "here boy": return "2"; // fixes bug - annyang registers come as c** - yikes
+        //case "here" : return "2"; // fixes bug - annyang registers come as c** - yikes
         case "dance": return "3";
         case "dj"   : return "4";
         case "DJ"   : return "4"; // fixes bug caused by annyang
