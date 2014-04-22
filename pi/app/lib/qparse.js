@@ -44,7 +44,7 @@ exports.parse = function parse(cmd) {
     else if(action === "wag"    || action === "Wag")    console.log("WagWag!");
     else if(action === "bark"   || action === "Bark")   play.lookup("bark.mp3","");
     else if(action === "growl"  || action === "Growl")  play.lookup("growl.mp3","");
-    else if(action === "sniff"  || action === "Sniff") play.lookup("sniff.mp3","");
+    else if(action === "sniff"  || action === "Sniff")	play.lookup("sniff.mp3","");
    
     //Goddard uses WolframAlpha to answer questions
     else if(action === "who"    || action === "Who")    wolfram.ask(question);
@@ -75,7 +75,7 @@ exports.parse = function parse(cmd) {
     else if(action === "make"   || action === "Make")   make.make(argument);
     else if(action === "wake"   || action === "Wake")   console.log("I'm awake!");
     else if(action === "bad"	|| action === "Bad")	play.lookup("wimper.mp3","");    
-    else if(action === "good"	|| action === "Good")	console.log(':)');
+    else if(action === "good"	|| action === "Good")	play.lookup("pant.mp3","");
 
     //Ignore the directional stuff
     else if(action === "N" || action === "E" || action === "S" || action === "W" || action === "NE" || action === "NW" || action === "SE" || action === "SW");
