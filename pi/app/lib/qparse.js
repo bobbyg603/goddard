@@ -41,7 +41,7 @@ exports.parse = function parse(cmd) {
     else if(action === "dj"     || action === "DJ" )    play.pickRandomSong("dj");
     else if(action === "bump"   || action === "Bump")   play.pickRandomSong("bump");
     
-    else if(action === "wag"    || action === "Wag")    console.log("WagWag!");
+    else if(action === "wag"    || action === "Wag")    play.lookup("pant.mp3","");
     else if(action === "bark"   || action === "Bark")   play.lookup("bark.mp3","");
     else if(action === "growl"  || action === "Growl")  play.lookup("growl.mp3","");
     else if(action === "sniff"  || action === "Sniff")	play.lookup("sniff.mp3","");
