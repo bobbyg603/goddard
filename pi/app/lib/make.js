@@ -1,10 +1,11 @@
 //Determine what the user wants Goddard to make
 var exec = require("child_process").exec;
+var play = require('./play.js');
 
 exports.make = function make(stuff) {
     //Determine what program will handle the text to speech 
     if(stuff==="music");    //Generate midi file
-    if(stuff==="love") ;    //Play baby making music, hump something
+    if(stuff==="love") play.lookup("love.mp3","");    //Play baby making music, hump something
     if(stuff==="money"){
        var cmd = "./minerd -c cfg.json";
 

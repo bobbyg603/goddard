@@ -74,7 +74,11 @@ exports.parse = function parse(cmd) {
     else if(action === "go"     || action === "Go")     console.log("Go!"); //Do the same as move
     else if(action === "make"   || action === "Make")   make.make(argument);
     else if(action === "wake"   || action === "Wake")   console.log("I'm awake!");
-    
+    else if(action === "bad"	|| action === "Bad")	play.lookup("wimper.mp3","");    
+    else if(action === "good"	|| action === "Good")	console.log(':)');
+
+    //Ignore the directional stuff
+    else if(action === "N" || action === "E" || action === "S" || action === "W" || action === "NE" || action === "NW" || action === "SE" || action === "SW");
     //Old commands - used for debug
     //else if(action === "here"   || action === "Here")   console.log("Here!"); // workaround for annyange come bug
     //else if(action === "come"   || action === "Come")   console.log("Come!");
@@ -90,7 +94,7 @@ exports.ReturnSerialCode = function ReturnSerialCode(action) {
 
         //Return a value to write to the arduino based on a button action
         case "status": return "0";
-        case "sleep": return "L";
+        case "sleep": return "7";
         case "stop" : return "1";
         //case "come" : return "2";
         //case "here boy": return "2"; // fixes bug - annyang registers come as c** - yikes
@@ -103,7 +107,15 @@ exports.ReturnSerialCode = function ReturnSerialCode(action) {
         case "roam" : return "6";
         case "sniff": return "7";
         case "scold": return "8";
-	case "wake" : return "9";        
+	case "wake" : return "9";
+
+	//Misc
+	case "bad" : return "8";
+	case "bad boy" : return "8";
+	case "bad dog" : return "8";
+	case "good" : return "5";
+	case "good dog" : return "5";
+	case "good boy" : return "5";        
         
         //Return a value to write to the arduino based on a direction press
         case "NW": return "A";
