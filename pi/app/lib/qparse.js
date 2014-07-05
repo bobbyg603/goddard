@@ -27,58 +27,61 @@ exports.parse = function parse(cmd) {
         else { action = cmd; argument = "undefined"; }
     }
     
+    //Make action lower case to make the logic block easier to manage
+    action = action.toLowerCase();
+    
     //Create a question to send to wolfram
     question = action + " " + argument;
     
-    //These are all of the Primary actions Goddard understands
-    if(action === "help"        || action === "Help")   help.list(); // Needs to be sent to client
-    else if(action === "scold"  || action === "Scold")  play.lookup("wimper.mp3","");
-    else if(action === "sleep"  || action === "Sleep")	play.lookup("sleep.mp3","");
-    else if(action === "stop"   || action === "Stop")   stop.program(argument);
+    //These are all of the primary actions Goddard understands
+    if(action === "help")           help.list(); // Needs to be sent to client
+    else if(action === "scold")     play.lookup("wimper.mp3","");
+    else if(action === "sleep")     play.lookup("sleep.mp3","");
+    else if(action === "stop")      stop.program(argument);
     
-    else if(action === "roam"   || action === "Roam")   console.log("Roaming!");
-    else if(action === "dance"  || action === "Dance")	play.lookup("dance.mp3","/dj");
-    else if(action === "dj"     || action === "DJ" )    play.pickRandomSong("dj");
-    else if(action === "bump"   || action === "Bump")   play.pickRandomSong("bump");
+    else if(action === "roam")      console.log("Roaming!");
+    else if(action === "dance")     play.lookup("dance.mp3","/dj");
+    else if(action === "dj")        play.pickRandomSong("dj");
+    else if(action === "bump")      play.pickRandomSong("bump");
     
-    else if(action === "wag"    || action === "Wag")    play.lookup("pant.mp3","");
-    else if(action === "bark"   || action === "Bark")   play.lookup("bark.mp3","");
-    else if(action === "growl"  || action === "Growl")  play.lookup("growl.mp3","");
-    else if(action === "sniff"  || action === "Sniff")	play.lookup("sniff.mp3","");
+    else if(action === "wag")       play.lookup("pant.mp3","");
+    else if(action === "bark")      play.lookup("bark.mp3","");
+    else if(action === "growl")     play.lookup("growl.mp3","");
+    else if(action === "sniff")     play.lookup("sniff.mp3","");
    
     //Goddard uses WolframAlpha to answer questions
-    else if(action === "who"    || action === "Who")    wolfram.ask(question);
-    else if(action === "what"   || action === "What")   wolfram.ask(question);
-    else if(action === "when"   || action === "When")   wolfram.ask(question);
-    else if(action === "where"  || action === "Where")	wolfram.ask(question);
-    else if(action === "why"    || action === "Why")    wolfram.ask(question);
-    else if(action === "how"    || action === "How")    wolfram.ask(question);
+    else if(action === "who")       wolfram.ask(question);
+    else if(action === "what")      wolfram.ask(question);
+    else if(action === "when")      wolfram.ask(question);
+    else if(action === "where")     wolfram.ask(question);
+    else if(action === "why")       wolfram.ask(question);
+    else if(action === "how")       wolfram.ask(question);
     
     //This is how Goddard talks
-    else if(action === "say"    || action === "Say")    speak.say(argument);
+    else if(action === "say")       speak.say(argument);
     
     //This is how Goddard tweets
-    else if(action === "tweet"  || action === "Tweet")  tweet.newTweet(argument);
+    else if(action === "tweet")     tweet.newTweet(argument);
     
     //This is how Goddard translates
-    else if(action === "translate" || action === "Translate") ;
+    else if(action === "translate") console.log("Not implemented!");
     
     //These are the Secondary actions Goddard understands
-    else if(action === "play"   || action === "Play")   play.lookup(argument,"");
-    else if(action === "fetch"  || action === "Fetch")	console.log("Fetch!");
-    else if(action === "start"  || action === "Start")  console.log("Start!");
-    else if(action === "kill"   || action === "Kill")   stop.program(argument);
-    else if(action === "speak"  || action === "Speak")  play.lookup("bark.mp3","");
-    else if(action === "kiss"   || action === "Kiss")   play.lookup("kiss.mp3","");
-    else if(action === "move"   || action === "Move")   console.log("Move!");
-    else if(action === "go"     || action === "Go")     console.log("Go!"); //Do the same as move
-    else if(action === "make"   || action === "Make")   make.make(argument);
-    else if(action === "wake"   || action === "Wake")   console.log("I'm awake!");
-    else if(action === "bad"	|| action === "Bad")	play.lookup("wimper.mp3","");    
-    else if(action === "good"	|| action === "Good")	play.lookup("pant.mp3","");
+    else if(action === "play")      play.lookup(argument,"");
+    else if(action === "fetch")     console.log("Fetch!");
+    else if(action === "start")     console.log("Start!");
+    else if(action === "kill")      stop.program(argument);
+    else if(action === "speak")     play.lookup("bark.mp3","");
+    else if(action === "kiss")      play.lookup("kiss.mp3","");
+    else if(action === "move")      console.log("Move!");
+    else if(action === "go")        console.log("Go!"); //Do the same as move
+    else if(action === "make")      make.make(argument);
+    else if(action === "wake")      console.log("I'm awake!");
+    else if(action === "bad")       play.lookup("wimper.mp3","");    
+    else if(action === "good")      play.lookup("pant.mp3","");
 
     //Ignore the directional stuff
-    else if(action === "N" || action === "E" || action === "S" || action === "W" || action === "NE" || action === "NW" || action === "SE" || action === "SW");
+    else if(action === "n" || action === "e" || action === "s" || action === "w" || action === "ne" || action === "nw" || action === "se" || action === "sw");
     //Old commands - used for debug
     //else if(action === "here"   || action === "Here")   console.log("Here!"); // workaround for annyange come bug
     //else if(action === "come"   || action === "Come")   console.log("Come!");
@@ -90,6 +93,7 @@ exports.parse = function parse(cmd) {
 };
 
 exports.ReturnSerialCode = function ReturnSerialCode(action) {
+    
     switch(action){
 
         //Return a value to write to the arduino based on a button action
@@ -107,25 +111,25 @@ exports.ReturnSerialCode = function ReturnSerialCode(action) {
         case "roam" : return "6";
         case "sniff": return "7";
         case "scold": return "8";
-	case "wake" : return "9";
-
-	//Misc
-	case "bad" : return "8";
-	case "bad boy" : return "8";
-	case "bad dog" : return "8";
-	case "good" : return "5";
-	case "good dog" : return "5";
-	case "good boy" : return "5";        
+        case "wake" : return "9";
+    
+        //Misc
+        case "bad" : return "8";
+        case "bad boy" : return "8";
+        case "bad dog" : return "8";
+        case "good" : return "5";
+        case "good dog" : return "5";
+        case "good boy" : return "5";        
         
         //Return a value to write to the arduino based on a direction press
-        case "NW": return "A";
-        case "N" : return "N";
-        case "NE": return "B";
-        case "E" : return "E";
-        case "W" : return "W";
-        case "SW": return "C";
-        case "S" : return "S";
-        case "SE": return "D";
+        case "nw": return "A";
+        case "n" : return "N";
+        case "ne": return "B";
+        case "e" : return "E";
+        case "w" : return "W";
+        case "sw": return "C";
+        case "s" : return "S";
+        case "se": return "D";
         
         //Events that don't require arduino interaction;
         default: return null;
