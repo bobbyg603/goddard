@@ -1,24 +1,24 @@
 <!-- views/profile.ejs -->
 <!doctype html>
 <html>
-<head>
-	<title>UNH Goddard | Cmd</title>
-	<link rel="stylesheet" href="/public/bootstrap3.0.3/css/bootstrap.min.css">
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-	 
-	<!--Socket.io-->
+  <head>
+  	<title>UNH Goddard | Cmd</title>
+  	<link rel="stylesheet" href="/public/bootstrap3.0.3/css/bootstrap.min.css">
+  	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+  	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  	 
+  	<!--Socket.io-->
     <script src="/socket.io/socket.io.js"></script>
-    
+      
     <!--Annyang Voice Recognition-->
-	<script src="/public/annyang.min.js"></script>
-	
+  	<script src="/public/annyang.min.js"></script>
+  	
     <script>
       //var socket = io.connect('https://v2-c9-bobbyg603.c9.io');
       var socket = io.connect('raspberrypi.local:8888');
       //var socket = io.connect('132.177.206.210:8888');      
       //var socket = io.connect('10.10.20.114:8888');
-
+  
       socket.on('news', function (data) {
         console.log(data);
         socket.emit('status', "hello from the client!");
@@ -40,10 +40,10 @@
             case "status" : document.getElementById("console").innerHTML = "status!"; break;
             case "sleep" : document.getElementById("console").innerHTML = "sleeping!"; break;
             case "stop audio" : document.getElementById("console").innerHTML = "stopping!"; break;
-	    case "kill audio" : document.getElementById("console").innerHTML = "muted!"; break;            
-	    case "sniff" : document.getElementById("console").innerHTML = "sniffing!"; break;
-	    case "scold" : document.getElementById("console").innerHTML = "scolding!"; break; 
-
+      	    case "kill audio" : document.getElementById("console").innerHTML = "muted!"; break;            
+      	    case "sniff" : document.getElementById("console").innerHTML = "sniffing!"; break;
+      	    case "scold" : document.getElementById("console").innerHTML = "scolding!"; break; 
+  
             case "d1" : document.getElementById("console").innerHTML = "up!"; break;
             case "d2" : document.getElementById("console").innerHTML = "right!"; break;
             case "d3" : document.getElementById("console").innerHTML = "down!"; break;
@@ -68,113 +68,118 @@
       annyang.start();
     }
     </script>
-    <style>
-		body 		        { 
-		                        -webkit-touch-callout:none;
-                                -webkit-user-select:none;
-                                -khtml-user-select:none;
-                                -moz-user-select:none;
-                                -ms-user-select:none;
-                                user-select:none;
-                                -webkit-tap-highlight-color:rgba(0,0,0,0);
-		                        padding-top:0px; 
-		                        background-color:#EEE;
-		                        background-image:url("/public/metal.jpg");
-		                        text-align:center;
-		                    }
-		.col-xs-4           { padding-left:0px;height:75px; line-height:75px; background-color:#FFD700; background-size:100%; color:black; border:1px solid gray;}
-		.col-xs-4:active    { padding-left:0px;background-color:green; color:black; }
-		.col-xs-3           { padding-left:1%;height:75px; line-height:75px; background-color:#FFD700; background-size:100%; color:black; border:1px solid gray;}
-		.col-xs-3:active    { padding-left:1%;background-color:green; color:black; }
-	    .btnText            {
-    	                        -webkit-touch-callout: none;
-                                -webkit-user-select: none;
-                                -khtml-user-select: none;
-                                -moz-user-select: none;
-                                -ms-user-select: none;
-                                 user-select: none;
-                                 
-    	                    }
-    	#upleft { background-image:url('/public/dir/upleft.png'); background-size:50%; background-repeat:no-repeat;background-attachment:fixed;background-position:center; }
-    	#up { background-image:url('/public/dir/up.png'); background-size:50%; background-repeat:no-repeat;background-attachment:fixed;background-position:center; }
-    	#upright { background-image:url('/public/dir/upright.png'); background-size:50%; background-repeat:no-repeat;background-attachment:fixed;background-position:center; }
-        #left { background-image:url('/public/dir/left.png');background-size:50%; background-repeat:no-repeat;background-attachment:fixed;background-position:center; }
-        #right { background-image:url('/public/dir/right.png');background-size:50%; background-repeat:no-repeat;background-attachment:fixed;background-position:center; }
-        #downleft{ background-image:url('/public/dir/downleft.png');background-size:50%; background-repeat:no-repeat;background-attachment:fixed;background-position:center; }
-        #down { background-image:url('/public/dir/down.png');background-size:50%; background-repeat:no-repeat;background-attachment:fixed;background-position:center; }
-        #downright { background-image:url('/public/dir/downright.png');background-size:50%; background-repeat:no-repeat;background-attachment:fixed;background-position:center; }
-	</style>
-</head>
-<body>
-<!--Nav Bar-->
-<nav class="navbar navbar-default" role="navigation">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <center><h4><span id="console">Say a command or tap the controls below!</span</h4></center>
-    </div>
-  </div>
-</nav>
-
-<!--Container-->    
-<div class="container-fluid">
-    <center><h2><b>
-        <!--Action Buttons-->
-        <div class="row">
-            <div class="col-xs-3" onclick="btnPress('help');"><span class="btnText">help</span></div>
-            <div class="col-xs-3" onclick="btnPress('scold');"><span class="btnText">scold</span></div>
-            <div class="col-xs-3" onclick="btnPress('sleep');"><span class="btnText">sleep</span></div>
-            <div class="col-xs-3" onclick="btnPress('kill audio');"><span class="btnText">mute</span></div>
-        </div>
-        <div class="row">
-            <div class="col-xs-3" onclick="btnPress('dance');"><span class="btnText">dance</span></div>
-            <div class="col-xs-3" onclick="btnPress('dj');"><span class="btnText">dj</span></div>
-            <div class="col-xs-3" onclick="btnPress('bump');"><span class="btnText">bump</span></div>
-            <div class="col-xs-3" onclick="btnPress('roam');"><span class="btnText">&nbsp;roam</span></div>
-        </div>
-        <div class="row">
-            <div class="col-xs-3" onclick="btnPress('wag');"><span class="btnText">wag</span></div>
-            <div class="col-xs-3" onclick="btnPress('bark');"><span class="btnText">bark</span></div>
-            <div class="col-xs-3" onclick="btnPress('growl');"><span class="btnText">growl</span></div>
-            <div class="col-xs-3" onclick="btnPress('sniff');"><span class="btnText">sniff</span></div>
-        </div>
-        
-        <br/>
-
-        <!--Directional Buttons-->
-        <div class="row">
-            <div id="upleft" class="col-xs-4" onmousedown="btnPress('NW');" onmouseup="btnPress('stop');"></div>
-            <div id="up" class="col-xs-4" onmousedown="btnPress('N');" onmouseup="btnPress('stop');"></div>
-            <div id="upright" class="col-xs-4" onmousedown="btnPress('NE');" onmouseup="btnPress('stop');"></div>
-        </div>
-        <div class="row">
-            <div id="left" class="col-xs-4" onmousedown="btnPress('W');" onmouseup="btnPress('stop');"></div>
-            <div id="" class="col-xs-4" onclick="btnPress('stop')">Stop</div>
-            <div id="right" class="col-xs-4" onmousedown="btnPress('E');" onmouseup="btnPress('stop');"></div>
-        </div>
-        <div class="row">
-            <div id="downleft" class="col-xs-4" onmousedown="btnPress('SW');" onmouseup="btnPress('stop');"></div>
-            <div id="down" class="col-xs-4" onmousedown="btnPress('S');" onmouseup="btnPress('stop');"></div>
-            <div id="downright" class="col-xs-4" onmousedown="btnPress('SE');" onmouseup="btnPress('stop');"s></div>
-        </div>
-    </b></h2></center>
     
-    <!--
-    <center>
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREKM54ho1eLic4PZkR9_HyYtUtbBw1HGI_y55j6_WeZY01p4T9Rg"/>
-            <h1>Listening for commands!</h1>
-    </center>
-    -->
-
-    <!--Footer-->
-    <div id="footer">
-    	<div class="container">
-        <center><h3><b><a href="https://twitter.com/unhgoddard">@unhgoddard</a></b></h3></center>
+    <style>
+  		body { 
+        user-select:none;
+        -webkit-touch-callout:none;
+        -webkit-user-select:none;
+        -khtml-user-select:none;
+        -moz-user-select:none;
+        -ms-user-select:none;
+        -webkit-tap-highlight-color:rgba(0,0,0,0);
+        padding-top:0px; 
+        background-color:#EEE;
+        background-image:url("/public/metal.jpg");
+        text-align:center;
+  		}
+  		
+  		.col-xs-3,
+  		.col-xs-4
+  		{
+  		  padding-left:0px;
+  		  height:75px;
+  		  line-height:75px;
+  		  background-color:#FFD700;
+  		  background-size:100%;
+  		  color:black;
+  		  border:1px solid gray;
+  		}
+  		
+  		.col-xs-3:active,
+  		.col-xs-4:active
+  		{
+  		  padding-left:1%;
+  		  background-color:green;
+  		  color:black;
+  		}
+  		
+  	  .btnText {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+         user-select: none;
+      }	
+    </style>
+  </head>
+  
+  <body>
+    <!--Nav Bar-->
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <center><h4><span id="console">Say a command or tap the controls below!</span</h4></center>
+        </div>
+      </div>
+    </nav>
+    
+    <!--Container-->    
+    <div class="container-fluid">
+        <center>
+          <b>
+            <h2>
+              <!--Action Buttons-->
+              <div class="row">
+                  <div class="col-xs-3" onclick="btnPress('help');"><span class="btnText">help</span></div>
+                  <div class="col-xs-3" onclick="btnPress('scold');"><span class="btnText">scold</span></div>
+                  <div class="col-xs-3" onclick="btnPress('sleep');"><span class="btnText">sleep</span></div>
+                  <div class="col-xs-3" onclick="btnPress('kill audio');"><span class="btnText">mute</span></div>
+              </div>
+              <div class="row">
+                  <div class="col-xs-3" onclick="btnPress('dance');"><span class="btnText">dance</span></div>
+                  <div class="col-xs-3" onclick="btnPress('dj');"><span class="btnText">dj</span></div>
+                  <div class="col-xs-3" onclick="btnPress('bump');"><span class="btnText">bump</span></div>
+                  <div class="col-xs-3" onclick="btnPress('roam');"><span class="btnText">&nbsp;roam</span></div>
+              </div>
+              <div class="row">
+                  <div class="col-xs-3" onclick="btnPress('wag');"><span class="btnText">wag</span></div>
+                  <div class="col-xs-3" onclick="btnPress('bark');"><span class="btnText">bark</span></div>
+                  <div class="col-xs-3" onclick="btnPress('growl');"><span class="btnText">growl</span></div>
+                  <div class="col-xs-3" onclick="btnPress('sniff');"><span class="btnText">sniff</span></div>
+              </div>
+              <br/>
+            </h2>
+            <h1>
+              <!--Directional Buttons-->
+              <div class="row">
+                  <div id="upleft" class="col-xs-4" onmousedown="btnPress('NW');" onmouseup="btnPress('stop');">↖</div>
+                  <div id="up" class="col-xs-4" onmousedown="btnPress('N');" onmouseup="btnPress('stop');">↑</div>
+                  <div id="upright" class="col-xs-4" onmousedown="btnPress('NE');" onmouseup="btnPress('stop');">↗</div>
+              </div>
+              <div class="row">
+                  <div id="left" class="col-xs-4" onmousedown="btnPress('W');" onmouseup="btnPress('stop');">←</div>
+                  <div id="" class="col-xs-4" onclick="btnPress('stop')">Stop</div>
+                  <div id="right" class="col-xs-4" onmousedown="btnPress('E');" onmouseup="btnPress('stop');">→</div>
+              </div>
+              <div class="row">
+                  <div id="downleft" class="col-xs-4" onmousedown="btnPress('SW');" onmouseup="btnPress('stop');">↙</div>
+                  <div id="down" class="col-xs-4" onmousedown="btnPress('S');" onmouseup="btnPress('stop');">↓</div>
+                  <div id="downright" class="col-xs-4" onmousedown="btnPress('SE');" onmouseup="btnPress('stop');">↘</div>
+              </div>
+            </h1>
+          </b>
+        </center>
+    
+      <!--Footer-->
+      <div id="footer">
+      	<div class="container">
+          <center><h3><b><a href="https://twitter.com/unhgoddard">@unhgoddard</a></b></h3></center>
+        </div>
+      </div>
     </div>
-
-</div>
-</div>
-
-</body>
+  </body>
 </html>
 
