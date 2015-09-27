@@ -61,9 +61,9 @@ require('./app/routes.js')(app, passport); // load our routes and pass in our ap
 
 // launch ======================================================================
 //app.listen(port);
-server.listen(process.env.PORT);
+//server.listen(process.env.PORT);
 
-//server.listen(8888);
+server.listen(8888);
 console.log('The magic happens on port ' + port);
 
 // socket.io ===================================================================
