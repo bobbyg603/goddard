@@ -1,10 +1,10 @@
 var twit = require('twit');
 
 var t = new twit({
-    consumer_key:         '7WFBExWYwvAbJbZjnd972w'
-  , consumer_secret:      'HjpEe9La7H58XwkyrWCV0uFjflrW96YjKg8WLyFppWQ'
-  , access_token:         '2321453232-ogghxSrhJcTpnnpejFGqdV2ZYNmOH56tj5T5mdR'
-  , access_token_secret:  'wCkEInEbOiNuPSy3tB6sN3bzxNKkaEvS6sXADIujLnnRg'
+    consumer_key:         '*'
+  , consumer_secret:      '*'
+  , access_token:         '*'
+  , access_token_secret:  '*'
 });
 
 exports.newTweet = function tweet(words) {
